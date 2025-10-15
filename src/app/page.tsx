@@ -318,6 +318,61 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Seção de Introdução */}
+      <div className="bg-gradient-to-r from-amber-100 to-orange-100 border-b-2 border-amber-300">
+        <div className="container mx-auto px-4 py-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0">
+                <div className="w-16 h-16 bg-gradient-to-br from-amber-600 to-orange-600 rounded-full flex items-center justify-center shadow-lg">
+                  <BookOpen className="w-8 h-8 text-white" />
+                </div>
+              </div>
+              <div className="flex-1">
+                <h2 className="text-2xl font-bold text-amber-900 mb-3">O que é o DOMINUS RPG?</h2>
+                <div className="space-y-3 text-amber-800">
+                  <p className="leading-relaxed">
+                    <span className="font-semibold">DOMINUS</span> é um sistema de RPG sem mestre. Este é um DOMINUS de fantasia steampunk ambientado em uma Era Vitoriana alternativa onde a magia antiga coexiste com tecnologia a vapor. Neste mundo, engrenagens gigantes movem cidades flutuantes, 
+                    autômatos ganham consciência e alquimistas criam poções místicas em laboratórios movidos a carvão.
+                  </p>
+                  <p className="leading-relaxed">
+                    <span className="font-semibold text-amber-900">Sem mestre?</span> Exato! Em DOMINUS, os próprios jogadores controlam a narrativa usando as tabelas 
+                    intuitivas do sistema. Role o dado para gerar tramas, personagens, cenas e elementos surpresa. 
+                    Todas as regras essenciais estão integradas nas ferramentas que você vê nesta página - 
+                    <span className="italic">"você encontrará todas as regras do Dominus no verso desta folha."</span>
+                  </p>
+                  <p className="leading-relaxed">
+                    Como aventureiro neste universo, você explorará conspirações industriais, negociará com facções místicas, 
+                    pilotará dirigíveis piratas e descobrirá segredos que podem mudar o curso da história. 
+                    O sistema usa mecânicas simples baseadas em D6 para gerar histórias dinâmicas e colaborativas.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    <Badge variant="secondary" className="bg-amber-200 text-amber-900 border-amber-400">
+                      ⚙️ Steampunk
+                    </Badge>
+                    <Badge variant="secondary" className="bg-amber-200 text-amber-900 border-amber-400">
+                      🔮 Magia Tecnológica
+                    </Badge>
+                    <Badge variant="secondary" className="bg-amber-200 text-amber-900 border-amber-400">
+                      🎭 Aventura e Mistério
+                    </Badge>
+                    <Badge variant="secondary" className="bg-amber-200 text-amber-900 border-amber-400">
+                      🎲 D6 System
+                    </Badge>
+                    <Badge variant="secondary" className="bg-blue-200 text-blue-900 border-blue-400">
+                      🎯 Sem Mestre
+                    </Badge>
+                    <Badge variant="secondary" className="bg-green-200 text-green-900 border-green-400">
+                      👥 Cooperativo
+                    </Badge>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Painel de Dados */}
