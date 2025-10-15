@@ -8,7 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Separator } from '@/components/ui/separator'
-import { Dice1, Dice2, Dice3, Dice4, Dice5, Dice6, Sparkles, BookOpen, Users, Map, Lightbulb, Settings, Clock, Zap } from 'lucide-react'
+import { Dice1, Dice2, Dice3, Dice4, Dice5, Dice6, Sparkles, BookOpen, Users, Map, Lightbulb, Settings, Clock, Zap, HelpCircle } from 'lucide-react'
 import CharacterCard from '@/components/CharacterCard'
 import '@/styles/animations.css'
 
@@ -24,6 +24,44 @@ interface RollResult {
 }
 
 const rpgTables = {
+  oraculo: [
+    {
+      d6: 1,
+      resultado: "NÃO / Fracasso",
+      descricao: "A resposta é negativa ou a ação falha completamente.",
+      cor: "text-red-700"
+    },
+    {
+      d6: 2,
+      resultado: "NÃO / Fracasso", 
+      descricao: "A resposta é negativa ou a ação falha.",
+      cor: "text-red-600"
+    },
+    {
+      d6: 3,
+      resultado: "NÃO / Fracasso",
+      descricao: "A resposta é negativa ou a ação falha parcialmente.",
+      cor: "text-red-500"
+    },
+    {
+      d6: 4,
+      resultado: "SIM / Sucesso",
+      descricao: "A resposta é positiva ou a ação tem sucesso parcial.",
+      cor: "text-green-500"
+    },
+    {
+      d6: 5,
+      resultado: "SIM / Sucesso",
+      descricao: "A resposta é positiva ou a ação tem sucesso.",
+      cor: "text-green-600"
+    },
+    {
+      d6: 6,
+      resultado: "SIM / Sucesso",
+      descricao: "A resposta é positiva ou a ação tem sucesso completo.",
+      cor: "text-green-700"
+    }
+  ],
   trama: [
     {
       d6: 1,
@@ -224,7 +262,7 @@ export default function Home() {
   const [isRolling, setIsRolling] = useState(false)
   const [currentDice, setCurrentDice] = useState(1)
   const [rollHistory, setRollHistory] = useState<RollResult[]>([])
-  const [selectedTable, setSelectedTable] = useState<string>('trama')
+  const [selectedTable, setSelectedTable] = useState<string>('oraculo')
   const [currentResult, setCurrentResult] = useState<any>(null)
   const [selectedCharacter, setSelectedCharacter] = useState<any>(null)
   const [isCharacterModalOpen, setIsCharacterModalOpen] = useState(false)
@@ -269,6 +307,7 @@ export default function Home() {
 
   const getTableName = (table: string) => {
     const names: { [key: string]: string } = {
+      oraculo: 'Oráculo',
       trama: 'Trama',
       personagem: 'Personagem',
       cena: 'Cena',
@@ -365,6 +404,9 @@ export default function Home() {
                     <Badge variant="secondary" className="bg-green-200 text-green-900 border-green-400">
                       👥 Cooperativo
                     </Badge>
+                    <Badge variant="secondary" className="bg-purple-200 text-purple-900 border-purple-400">
+                      🔮 Modo Oráculo
+                    </Badge>
                   </div>
                 </div>
               </div>
@@ -448,12 +490,16 @@ export default function Home() {
                   Tabelas do DOMINUS
                 </CardTitle>
                 <CardDescription className="text-amber-200">
-                  Escolha uma tabela e role o dado para gerar elementos da sua aventura
+                  Escolha uma tabela e role o dado para gerar elementos da sua aventura - incluindo o Modo Oráculo para respostas diretas
                 </CardDescription>
               </CardHeader>
               <CardContent className="p-6">
                 <Tabs value={selectedTable} onValueChange={setSelectedTable} className="w-full">
-                  <TabsList className="grid w-full grid-cols-4 bg-amber-100">
+                  <TabsList className="grid w-full grid-cols-5 bg-amber-100">
+                    <TabsTrigger value="oraculo" className="data-[state=active]:bg-amber-700 data-[state=active]:text-white">
+                      <HelpCircle className="w-4 h-4 mr-1" />
+                      Oráculo
+                    </TabsTrigger>
                     <TabsTrigger value="trama" className="data-[state=active]:bg-amber-700 data-[state=active]:text-white">
                       Trama
                     </TabsTrigger>
@@ -467,6 +513,45 @@ export default function Home() {
                       Banco
                     </TabsTrigger>
                   </TabsList>
+                  
+                  <TabsContent value="oraculo" className="mt-6">
+                    <div className="text-center mb-6">
+                      <h3 className="text-xl font-semibold text-amber-900 mb-2">Modo Oráculo</h3>
+                      <p className="text-amber-700">Role o dado para receber respostas diretas: 1-3 = NÃO/Fracasso, 4-6 = SIM/Sucesso</p>
+                    </div>
+                    <div className="overflow-x-auto">
+                      <table className="w-full border-collapse">
+                        <thead>
+                          <tr className="bg-amber-100">
+                            <th className="border border-amber-800 px-4 py-2 text-left">D6</th>
+                            <th className="border border-amber-800 px-4 py-2 text-left">Resultado</th>
+                            <th className="border border-amber-800 px-4 py-2 text-left">Descrição</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {rpgTables.oraculo.map((item) => (
+                            <tr 
+                              key={item.d6} 
+                              className={`hover:bg-amber-50 ${currentResult?.d6 === item.d6 ? 'bg-yellow-100 font-semibold' : ''}`}
+                            >
+                              <td className="border border-amber-800 px-4 py-2">
+                                <div className="flex items-center gap-2">
+                                  <DiceIcon value={item.d6} size={20} className="text-amber-700" />
+                                  <span className="font-medium">{item.d6}</span>
+                                </div>
+                              </td>
+                              <td className={`border border-amber-800 px-4 py-2 font-bold ${item.cor}`}>
+                                {item.resultado}
+                              </td>
+                              <td className="border border-amber-800 px-4 py-2 text-gray-700">
+                                {item.descricao}
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </TabsContent>
                   
                   <TabsContent value="trama" className="mt-6">
                     <div className="overflow-x-auto">
