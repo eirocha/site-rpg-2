@@ -572,6 +572,193 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Regras do Jogo */}
+        <div className="mt-8">
+          <Card className="border-2 border-amber-800 shadow-xl">
+            <CardHeader className="bg-gradient-to-r from-amber-800 to-orange-800 text-white">
+              <CardTitle className="flex items-center gap-2">
+                <BookOpen className="w-5 h-5" />
+                Regras do DOMINUS
+              </CardTitle>
+              <CardDescription className="text-amber-200">
+                Sistema completo para jogar suas aventuras steampunk
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="p-6">
+              <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+                {/* Regra 1 */}
+                <Card className="border-amber-600 bg-gradient-to-br from-amber-50 to-orange-50">
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-lg font-bold text-amber-900 flex items-center gap-2">
+                      <div className="w-8 h-8 bg-amber-700 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                        1
+                      </div>
+                      Preparação
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="pt-0">
+                    <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                      Escolha (ou role) um Arquétipo na tabela e dê um nome para seu personagem. Depois role um dado para cada uma das três colunas na tabela de Trama.
+                    </p>
+                    <div className="bg-amber-100 p-3 rounded-lg border border-amber-300">
+                      <p className="text-xs font-semibold text-amber-800 mb-1">📋 Passos:</p>
+                      <ul className="text-xs text-gray-700 space-y-1">
+                        <li>• Escolha seu Arquétipo</li>
+                        <li>• Dê um nome ao personagem</li>
+                        <li>• Role 3x na tabela Trama</li>
+                      </ul>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Regra 2 */}
+                <Card className="border-amber-600 bg-gradient-to-br from-amber-50 to-orange-50">
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-lg font-bold text-amber-900 flex items-center gap-2">
+                      <div className="w-8 h-8 bg-amber-700 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                        2
+                      </div>
+                      História
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="pt-0">
+                    <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                      Para começar a sua história, escolha (ou role) um Lugar na tabela de Cenas. Sempre que entrar em uma Cena, role um dado.
+                    </p>
+                    <div className="bg-amber-100 p-3 rounded-lg border border-amber-300">
+                      <p className="text-xs font-semibold text-amber-800 mb-1">🎲 Resultados:</p>
+                      <ul className="text-xs text-gray-700 space-y-1">
+                        <li>• <strong>3 ou menos:</strong> Role um Personagem</li>
+                        <li>• <strong>4 ou mais:</strong> Role um Evento</li>
+                        <li>• Vá para nova cena quando resolver conflitos</li>
+                      </ul>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Regra 3 */}
+                <Card className="border-amber-600 bg-gradient-to-br from-amber-50 to-orange-50">
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-lg font-bold text-amber-900 flex items-center gap-2">
+                      <div className="w-8 h-8 bg-amber-700 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                        3
+                      </div>
+                      Desafio
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="pt-0">
+                    <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                      Sempre que seu personagem tentar fazer algo que possa dar errado, você tem um Desafio: role um dado.
+                    </p>
+                    <div className="bg-amber-100 p-3 rounded-lg border border-amber-300">
+                      <p className="text-xs font-semibold text-amber-800 mb-1">⚡ Resultados:</p>
+                      <ul className="text-xs text-gray-700 space-y-1">
+                        <li>• <strong>4 ou mais:</strong> Sucesso!</li>
+                        <li>• <strong>Vantagem:</strong> Role 2, escolha o maior</li>
+                        <li>• <strong>Desvantagem:</strong> Role 2, escolha o menor</li>
+                      </ul>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Regra 4 */}
+                <Card className="border-amber-600 bg-gradient-to-br from-amber-50 to-orange-50">
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-lg font-bold text-amber-900 flex items-center gap-2">
+                      <div className="w-8 h-8 bg-amber-700 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                        4
+                      </div>
+                      Dilema
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="pt-0">
+                    <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                      Sempre que tiver uma dúvida cuja resposta não seja óbvia, determine duas opções possíveis e role um dado.
+                    </p>
+                    <div className="bg-amber-100 p-3 rounded-lg border border-amber-300">
+                      <p className="text-xs font-semibold text-amber-800 mb-1">⚖️ Resultados:</p>
+                      <ul className="text-xs text-gray-700 space-y-1">
+                        <li>• <strong>3 ou menos:</strong> Primeira opção</li>
+                        <li>• <strong>4 ou mais:</strong> Segunda opção</li>
+                        <li>• Ex: sim/não, esquerda/direita, A/B</li>
+                      </ul>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Regra 5 */}
+                <Card className="border-amber-600 bg-gradient-to-br from-amber-50 to-orange-50">
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-lg font-bold text-amber-900 flex items-center gap-2">
+                      <div className="w-8 h-8 bg-amber-700 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                        5
+                      </div>
+                      Banco de Ideias
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="pt-0">
+                    <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                      Sempre que precisar elaborar melhor um Lugar, Personagem ou Evento, role no Banco de Ideias.
+                    </p>
+                    <div className="bg-amber-100 p-3 rounded-lg border border-amber-300">
+                      <p className="text-xs font-semibold text-amber-800 mb-1">💡 Como usar:</p>
+                      <ul className="text-xs text-gray-700 space-y-1">
+                        <li>• Role no Banco de Ideias</li>
+                        <li>• Interprete qualquer coluna</li>
+                        <li>• Adapte ao seu cenário</li>
+                      </ul>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Resumo Rápido */}
+                <Card className="border-amber-600 bg-gradient-to-br from-amber-50 to-orange-50 lg:col-span-2 xl:col-span-1">
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-lg font-bold text-amber-900 flex items-center gap-2">
+                      <Zap className="w-5 h-5" />
+                      Resumo Rápido
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="pt-0">
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2 text-sm">
+                        <div className="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-xs">
+                          ✓
+                        </div>
+                        <span className="text-gray-700"><strong>4+ = Sucesso</strong> em desafios</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-sm">
+                        <div className="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-xs">
+                          ?
+                        </div>
+                        <span className="text-gray-700"><strong>3- = Opção 1</strong> em dilemas</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-sm">
+                        <div className="w-6 h-6 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold text-xs">
+                          🎲
+                        </div>
+                        <span className="text-gray-700"><strong>4+ = Opção 2</strong> em dilemas</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-sm">
+                        <div className="w-6 h-6 bg-amber-600 text-white rounded-full flex items-center justify-center font-bold text-xs">
+                          🎯
+                        </div>
+                        <span className="text-gray-700"><strong>3- = Personagem</strong> em cenas</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-sm">
+                        <div className="w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center font-bold text-xs">
+                          ⚡
+                        </div>
+                        <span className="text-gray-700"><strong>4+ = Evento</strong> em cenas</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
         {/* Dicas para Jogadores */}
         <div className="mt-8">
           <Card className="border-2 border-amber-800 shadow-xl">
@@ -646,6 +833,38 @@ export default function Home() {
           onClose={() => setIsCharacterModalOpen(false)}
         />
       )}
+      
+      {/* Footer - Licenciamento */}
+      <footer className="border-t-2 border-amber-800 bg-gradient-to-r from-amber-900 to-orange-900 text-white mt-12 hover:from-amber-800 hover:to-orange-800 transition-all duration-300">
+        <div className="container mx-auto px-4 py-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              {/* Símbolo Creative Commons */}
+              <div className="flex items-center gap-1">
+                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                  <path d="M8.5 12c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5zm4.5 0c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5z"/>
+                </svg>
+                <span className="text-sm font-medium">CC BY 4.0</span>
+              </div>
+            </div>
+            
+            <div className="text-center md:text-right">
+              <p className="text-amber-100 text-sm leading-relaxed">
+                Esta obra foi criada pelo coletivo <strong>"Iniciativa Dominus"</strong> e está licenciada com uma<br />
+                <a 
+                  href="https://creativecommons.org/licenses/by/4.0/deed.pt_BR" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-amber-200 hover:text-amber-100 underline transition-colors duration-200"
+                >
+                  Licença Creative Commons Atribuição 4.0 Internacional
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
