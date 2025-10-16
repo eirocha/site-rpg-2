@@ -12,6 +12,7 @@ import { Dice1, Dice2, Dice3, Dice4, Dice5, Dice6, Sparkles, BookOpen, Users, Ma
 import CharacterCard from '@/components/ZombieCharacterCard'
 import { useTheme } from '@/contexts/ThemeContext'
 import '@/styles/animations.css'
+import '@/styles/scrollbar.css'
 
 interface TableData {
   d6: number
@@ -346,7 +347,7 @@ export default function ZombieRPG() {
               </div>
               <div className="text-center sm:text-left">
                 <h1 className="text-2xl sm:text-3xl font-bold text-red-100">DOMINUS ZOMBIE</h1>
-                <p className="text-red-300 text-xs sm:text-sm">Sistema de Sobrevivência Apocalíptica</p>
+                <p className="text-red-300 text-sm">Sistema de Sobrevivência Apocalíptica</p>
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -361,7 +362,7 @@ export default function ZombieRPG() {
                 <span className="sm:hidden">🏠</span>
               </Button>
               <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-red-300" />
-              <span className="text-red-200 text-xs sm:text-sm">Dia ? do Colapso</span>
+              <span className="text-red-200 text-sm">Dia ? do Colapso</span>
             </div>
           </div>
         </div>
@@ -395,25 +396,25 @@ export default function ZombieRPG() {
                     O sistema usa mecânicas simples baseadas em D6 para gerar histórias dinâmicas e colaborativas de horror e sobrevivência.
                   </p>
                   <div className="flex flex-wrap justify-center sm:justify-start gap-2 mt-4">
-                    <Badge variant="secondary" className="bg-red-900 text-red-100 border-red-600 text-xs sm:text-sm">
+                    <Badge variant="secondary" className="bg-red-900 text-red-100 border-red-600 text-sm">
                       🧟 Apocalipse Zumbi
                     </Badge>
-                    <Badge variant="secondary" className="bg-red-900 text-red-100 border-red-600 text-xs sm:text-sm">
+                    <Badge variant="secondary" className="bg-red-900 text-red-100 border-red-600 text-sm">
                       🩸 Horror de Sobrevivência
                     </Badge>
-                    <Badge variant="secondary" className="bg-red-900 text-red-100 border-red-600 text-xs sm:text-sm">
+                    <Badge variant="secondary" className="bg-red-900 text-red-100 border-red-600 text-sm">
                       ⚔️ Combate Desesperado
                     </Badge>
-                    <Badge variant="secondary" className="bg-red-900 text-red-100 border-red-600 text-xs sm:text-sm">
+                    <Badge variant="secondary" className="bg-red-900 text-red-100 border-red-600 text-sm">
                       🎲 D6 System
                     </Badge>
-                    <Badge variant="secondary" className="bg-gray-700 text-gray-100 border-gray-500 text-xs sm:text-sm">
+                    <Badge variant="secondary" className="bg-gray-700 text-gray-100 border-gray-500 text-sm">
                       🎯 Sem Mestre
                     </Badge>
-                    <Badge variant="secondary" className="bg-orange-900 text-orange-100 border-orange-600 text-xs sm:text-sm">
+                    <Badge variant="secondary" className="bg-orange-900 text-orange-100 border-orange-600 text-sm">
                       👥 Cooperativo
                     </Badge>
-                    <Badge variant="secondary" className="bg-purple-900 text-purple-100 border-purple-600 text-xs sm:text-sm">
+                    <Badge variant="secondary" className="bg-purple-900 text-purple-100 border-purple-600 text-sm">
                       🔮 Modo Oráculo
                     </Badge>
                   </div>
@@ -473,11 +474,11 @@ export default function ZombieRPG() {
                   <ScrollArea className="h-24 sm:h-32 bg-gray-800 rounded-lg border border-red-800">
                     <div className="space-y-2">
                       {rollHistory.length === 0 ? (
-                        <p className="text-gray-400 text-xs sm:text-sm">Nenhuma rolagem ainda</p>
+                        <p className="text-gray-400 text-sm">Nenhuma rolagem ainda</p>
                       ) : (
                         rollHistory.map((roll, index) => (
-                          <div key={index} className="flex items-center gap-2 text-xs sm:text-sm">
-                            <DiceIcon value={roll.result} size={14} className="sm:size-4 text-yellow-400" />
+                          <div key={index} className="flex items-center gap-2 text-sm">
+                            <DiceIcon value={roll.result} size={14} className=" text-yellow-400" />
                             <span className="font-medium text-white">{roll.result}</span>
                             <span className="text-gray-400">- {getTableName(roll.table)}</span>
                           </div>
@@ -505,24 +506,24 @@ export default function ZombieRPG() {
               <CardContent className="p-3 sm:p-6 bg-gray-800">
                 <Tabs value={selectedTable} onValueChange={setSelectedTable} className="w-full">
                   <TabsList className="grid w-full grid-cols-2 sm:grid-cols-5 bg-gray-700 h-auto min-h-[44px] gap-1">
-                    <TabsTrigger value="oraculo" className="data-[state=active]:bg-red-700 data-[state=active]:text-white text-xs sm:text-sm px-1 sm:px-3 py-2">
+                    <TabsTrigger value="oraculo" className="data-[state=active]:bg-red-700 data-[state=active]:text-white text-sm px-1 sm:px-3 py-2">
                       <HelpCircle className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
                       <span className="hidden sm:inline">Oráculo</span>
                       <span className="sm:hidden">🔮</span>
                     </TabsTrigger>
-                    <TabsTrigger value="trama" className="data-[state=active]:bg-red-700 data-[state=active]:text-white text-xs sm:text-sm px-1 sm:px-3 py-2">
+                    <TabsTrigger value="trama" className="data-[state=active]:bg-red-700 data-[state=active]:text-white text-sm px-1 sm:px-3 py-2">
                       <span className="hidden sm:inline">Trama</span>
                       <span className="sm:hidden">📖</span>
                     </TabsTrigger>
-                    <TabsTrigger value="personagem" className="data-[state=active]:bg-red-700 data-[state=active]:text-white text-xs sm:text-sm px-1 sm:px-3 py-2">
+                    <TabsTrigger value="personagem" className="data-[state=active]:bg-red-700 data-[state=active]:text-white text-sm px-1 sm:px-3 py-2">
                       <span className="hidden sm:inline">Personagem</span>
                       <span className="sm:hidden">👤</span>
                     </TabsTrigger>
-                    <TabsTrigger value="cena" className="data-[state=active]:bg-red-700 data-[state=active]:text-white text-xs sm:text-sm px-1 sm:px-3 py-2">
+                    <TabsTrigger value="cena" className="data-[state=active]:bg-red-700 data-[state=active]:text-white text-sm px-1 sm:px-3 py-2">
                       <span className="hidden sm:inline">Cena</span>
                       <span className="sm:hidden">🎬</span>
                     </TabsTrigger>
-                    <TabsTrigger value="bancoIdeias" className="data-[state=active]:bg-red-700 data-[state=active]:text-white text-xs sm:text-sm px-1 sm:px-3 py-2">
+                    <TabsTrigger value="bancoIdeias" className="data-[state=active]:bg-red-700 data-[state=active]:text-white text-sm px-1 sm:px-3 py-2">
                       <span className="hidden sm:inline">Banco</span>
                       <span className="sm:hidden">💡</span>
                     </TabsTrigger>
@@ -533,13 +534,13 @@ export default function ZombieRPG() {
                       <h3 className="text-lg sm:text-xl font-semibold text-red-100 mb-2">Modo Oráculo</h3>
                       <p className="text-red-300 text-sm sm:text-base">Role o dado para receber respostas diretas: 1-2 = NÃO/Perigo, 3 = TALVEZ/Cautela, 4-6 = SIM/Oportunidade</p>
                     </div>
-                    <div className="overflow-x-auto">
-                      <table className="w-full border-collapse text-xs sm:text-sm">
+                    <div className="overflow-auto max-h-[28rem] rounded-lg border border-red-800 zombie-scrollbar">
+                      <table className="w-full min-w-[800px] border-collapse text-sm">
                         <thead>
                           <tr className="bg-gray-700">
-                            <th className="border border-red-800 px-2 py-2 sm:px-4 sm:py-2 text-left text-red-100">D6</th>
-                            <th className="border border-red-800 px-2 py-2 sm:px-4 sm:py-2 text-left text-red-100">Resultado</th>
-                            <th className="border border-red-800 px-2 py-2 sm:px-4 sm:py-2 text-left hidden sm:table-cell text-red-100">Descrição</th>
+                            <th className="border border-red-800 px-2 py-2 text-left text-red-100">D6</th>
+                            <th className="border border-red-800 px-2 py-2 text-left text-red-100">Resultado</th>
+                            <th className="border border-red-800 px-2 py-2 text-left text-red-100">Descrição</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -556,23 +557,23 @@ export default function ZombieRPG() {
                                     : 'hover:bg-gray-600'
                               }`}
                             >
-                              <td className={`border border-red-800 px-2 py-2 sm:px-4 sm:py-2 ${
+                              <td className={`border border-red-800 px-2 py-2 ${
                                 isRolling && currentDice === item.d6 ? 'bg-transparent' : 'bg-gray-800'
                               }`}>
-                                <div className="flex items-center gap-1 sm:gap-2">
-                                  <DiceIcon value={item.d6} size={16} className={`${isRolling && currentDice === item.d6 ? 'text-black' : 'text-yellow-400'} sm:size-5`} />
+                                <div className="flex items-center gap-2">
+                                  <DiceIcon value={item.d6} size={16} className={`${isRolling && currentDice === item.d6 ? 'text-black' : 'text-yellow-400'}`} />
                                   <span className={`font-medium ${isRolling && currentDice === item.d6 ? 'text-black' : 'text-white'}`}>{item.d6}</span>
                                 </div>
                               </td>
-                              <td className={`border border-red-800 px-2 py-2 sm:px-4 sm:py-2 font-bold ${
+                              <td className={`border border-red-800 px-2 py-2 font-bold ${
                                 isRolling && currentDice === item.d6 ? 'bg-transparent text-black' : 'bg-gray-800'
                               } ${item.cor}`}>
-                                <div className="flex flex-col sm:block">
+                                <div className="flex flex-col">
                                   <span className={isRolling && currentDice === item.d6 ? 'text-black' : 'text-red-100'}>{item.resultado.split(' / ')[0]}</span>
-                                  <span className={`text-xs sm:text-sm sm:inline ${isRolling && currentDice === item.d6 ? 'text-black' : 'text-red-200'}`}>{item.resultado.split(' / ')[1]}</span>
+                                  <span className={`text-sm ${isRolling && currentDice === item.d6 ? 'text-black' : 'text-red-200'}`}>{item.resultado.split(' / ')[1]}</span>
                                 </div>
                               </td>
-                              <td className={`border border-red-800 px-2 py-2 sm:px-4 sm:py-2 hidden sm:table-cell ${
+                              <td className={`border border-red-800 px-2 py-2 ${
                                 isRolling && currentDice === item.d6 ? 'bg-transparent text-black' : 'bg-gray-800 text-gray-300'
                               }`}>
                                 {item.descricao}
@@ -581,28 +582,18 @@ export default function ZombieRPG() {
                           ))}
                         </tbody>
                       </table>
-                      {/* Mobile Description */}
-                      <div className="sm:hidden mt-4 space-y-2">
-                        {zombieRpgTables.oraculo.map((item) => (
-                          currentResult?.d6 === item.d6 && (
-                            <div key={`mobile-${item.d6}`} className="bg-gray-700 p-3 rounded-lg border border-red-600">
-                              <p className="text-xs text-gray-300">{item.descricao}</p>
-                            </div>
-                          )
-                        ))}
-                      </div>
                     </div>
                   </TabsContent>
                   
                   <TabsContent value="trama" className="mt-4 sm:mt-6">
-                    <div className="overflow-x-auto">
-                      <table className="w-full border-collapse text-xs sm:text-sm">
+                    <div className="overflow-auto max-h-[28rem] rounded-lg border border-red-800 zombie-scrollbar ">
+                      <table className="w-full min-w-[800px] border-collapse text-sm">
                         <thead>
                           <tr className="bg-gray-700">
-                            <th className="border border-red-800 px-2 py-2 sm:px-4 sm:py-2 text-left text-red-100">D6</th>
-                            <th className="border border-red-800 px-2 py-2 sm:px-4 sm:py-2 text-left text-red-100">Aconteceu...</th>
-                            <th className="border border-red-800 px-2 py-2 sm:px-4 sm:py-2 text-left hidden sm:table-cell text-red-100">Precisa...</th>
-                            <th className="border border-red-800 px-2 py-2 sm:px-4 sm:py-2 text-left hidden sm:table-cell text-red-100">Senão...</th>
+                            <th className="border border-red-800 px-2 py-2 text-left text-red-100">D6</th>
+                            <th className="border border-red-800 px-2 py-2 text-left text-red-100">Aconteceu...</th>
+                            <th className="border border-red-800 px-2 py-2 text-left  text-red-100">Precisa...</th>
+                            <th className="border border-red-800 px-2 py-2 text-left  text-red-100">Senão...</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -619,52 +610,37 @@ export default function ZombieRPG() {
                                     : 'hover:bg-gray-600'
                               }`}
                             >
-                              <td className={`border border-red-800 px-2 py-2 sm:px-4 sm:py-2 ${
+                              <td className={`border border-red-800 px-2 py-2 ${
                                 isRolling && currentDice === item.d6 ? 'bg-transparent' : 'bg-gray-800'
                               }`}>
-                                <div className="flex items-center gap-1 sm:gap-2">
-                                  <DiceIcon value={item.d6} size={16} className={`${isRolling && currentDice === item.d6 ? 'text-black' : 'text-yellow-400'} sm:size-4`} />
+                                <div className="flex items-center gap-2">
+                                  <DiceIcon value={item.d6} size={16} className={`${isRolling && currentDice === item.d6 ? 'text-black' : 'text-yellow-400'} `} />
                                   <span className={`font-medium ${isRolling && currentDice === item.d6 ? 'text-black' : 'text-white'}`}>{item.d6}</span>
                                 </div>
                               </td>
-                              <td className={`border border-red-800 px-2 py-2 sm:px-4 sm:py-2 ${
+                              <td className={`border border-red-800 px-2 py-2 ${
                                 isRolling && currentDice === item.d6 ? 'bg-transparent text-black' : 'bg-gray-800 text-red-100'
                               }`}>{item.aconteceu}</td>
-                              <td className={`border border-red-800 px-2 py-2 sm:px-4 sm:py-2 hidden sm:table-cell ${
+                              <td className={`border border-red-800 px-2 py-2  ${
                                 isRolling && currentDice === item.d6 ? 'bg-transparent text-black' : 'bg-gray-800 text-red-100'
                               }`}>{item.precisa}</td>
-                              <td className={`border border-red-800 px-2 py-2 sm:px-4 sm:py-2 hidden sm:table-cell ${
+                              <td className={`border border-red-800 px-2 py-2  ${
                                 isRolling && currentDice === item.d6 ? 'bg-transparent text-black' : 'bg-gray-800 text-red-100'
                               }`}>{item.senao}</td>
                             </tr>
                           ))}
                         </tbody>
                       </table>
-                      {/* Mobile Details */}
-                      <div className="sm:hidden mt-4 space-y-2">
-                        {zombieRpgTables.trama.map((item) => (
-                          currentResult?.d6 === item.d6 && (
-                            <div key={`mobile-${item.d6}`} className="bg-gray-700 p-3 rounded-lg border border-red-600 space-y-2">
-                              <div>
-                                <span className="font-semibold text-red-100">Precisa:</span> {item.precisa}
-                              </div>
-                              <div>
-                                <span className="font-semibold text-red-100">Senão:</span> {item.senao}
-                              </div>
-                            </div>
-                          )
-                        ))}
-                      </div>
                     </div>
                   </TabsContent>
                   
                   <TabsContent value="personagem" className="mt-4 sm:mt-6">
-                    <div className="overflow-x-auto">
-                      <table className="w-full border-collapse text-xs sm:text-sm">
+                    <div className="overflow-auto max-h-[28rem] rounded-lg border border-red-800 zombie-scrollbar ">
+                      <table className="w-full min-w-[800px] border-collapse text-sm">
                         <thead>
                           <tr className="bg-gray-700">
-                            <th className="border border-red-800 px-2 py-2 sm:px-4 sm:py-2 text-left text-red-100">D6</th>
-                            <th className="border border-red-800 px-2 py-2 sm:px-4 sm:py-2 text-left text-red-100">Descrição</th>
+                            <th className="border border-red-800 px-2 py-2 text-left text-red-100">D6</th>
+                            <th className="border border-red-800 px-2 py-2 text-left text-red-100">Descrição</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -683,15 +659,15 @@ export default function ZombieRPG() {
                                 selectedCharacter?.id === item.d6 ? 'ring-2 ring-red-600 ring-inset' : ''
                               }`}
                             >
-                              <td className={`border border-red-800 px-2 py-2 sm:px-4 sm:py-2 ${
+                              <td className={`border border-red-800 px-2 py-2 ${
                                 isRolling && currentDice === item.d6 ? 'bg-transparent' : 'bg-gray-800'
                               }`}>
-                                <div className="flex items-center gap-1 sm:gap-2">
-                                  <DiceIcon value={item.d6} size={16} className={`${isRolling && currentDice === item.d6 ? 'text-black' : 'text-yellow-400'} sm:size-4`} />
+                                <div className="flex items-center gap-2">
+                                  <DiceIcon value={item.d6} size={16} className={`${isRolling && currentDice === item.d6 ? 'text-black' : 'text-yellow-400'} `} />
                                   <span className={`font-medium ${isRolling && currentDice === item.d6 ? 'text-black' : 'text-white'}`}>{item.d6}</span>
                                 </div>
                               </td>
-                              <td className={`border border-red-800 px-2 py-2 sm:px-4 sm:py-2 ${
+                              <td className={`border border-red-800 px-2 py-2 ${
                                 isRolling && currentDice === item.d6 ? 'bg-transparent' : 'bg-gray-800'
                               }`}>
                                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
@@ -720,14 +696,14 @@ export default function ZombieRPG() {
                   </TabsContent>
                   
                   <TabsContent value="cena" className="mt-4 sm:mt-6">
-                    <div className="overflow-x-auto">
-                      <table className="w-full border-collapse text-xs sm:text-sm">
+                    <div className="overflow-auto max-h-[28rem] rounded-lg border border-red-800 zombie-scrollbar ">
+                      <table className="w-full min-w-[800px] border-collapse text-sm">
                         <thead>
                           <tr className="bg-gray-700">
-                            <th className="border border-red-800 px-2 py-2 sm:px-4 sm:py-2 text-left text-red-100">D6</th>
-                            <th className="border border-red-800 px-2 py-2 sm:px-4 sm:py-2 text-left text-red-100">Lugar</th>
-                            <th className="border border-red-800 px-2 py-2 sm:px-4 sm:py-2 text-left hidden sm:table-cell text-red-100">Personagem (NPC)</th>
-                            <th className="border border-red-800 px-2 py-2 sm:px-4 sm:py-2 text-left hidden sm:table-cell text-red-100">Evento</th>
+                            <th className="border border-red-800 px-2 py-2 text-left text-red-100">D6</th>
+                            <th className="border border-red-800 px-2 py-2 text-left text-red-100">Lugar</th>
+                            <th className="border border-red-800 px-2 py-2 text-left  text-red-100">Personagem (NPC)</th>
+                            <th className="border border-red-800 px-2 py-2 text-left  text-red-100">Evento</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -744,57 +720,42 @@ export default function ZombieRPG() {
                                     : 'hover:bg-gray-600'
                               }`}
                             >
-                              <td className={`border border-red-800 px-2 py-2 sm:px-4 sm:py-2 ${
+                              <td className={`border border-red-800 px-2 py-2 ${
                                 isRolling && currentDice === item.d6 ? 'bg-transparent' : 'bg-gray-800'
                               }`}>
-                                <div className="flex items-center gap-1 sm:gap-2">
-                                  <DiceIcon value={item.d6} size={16} className={`${isRolling && currentDice === item.d6 ? 'text-black' : 'text-yellow-400'} sm:size-4`} />
+                                <div className="flex items-center gap-2">
+                                  <DiceIcon value={item.d6} size={16} className={`${isRolling && currentDice === item.d6 ? 'text-black' : 'text-yellow-400'} `} />
                                   <span className={`font-medium ${isRolling && currentDice === item.d6 ? 'text-black' : 'text-white'}`}>{item.d6}</span>
                                 </div>
                               </td>
-                              <td className={`border border-red-800 px-2 py-2 sm:px-4 sm:py-2 ${
+                              <td className={`border border-red-800 px-2 py-2 ${
                                 isRolling && currentDice === item.d6 ? 'bg-transparent text-black' : 'bg-gray-800 text-red-100'
                               }`}>{item.lugar}</td>
-                              <td className={`border border-red-800 px-2 py-2 sm:px-4 sm:py-2 hidden sm:table-cell ${
+                              <td className={`border border-red-800 px-2 py-2  ${
                                 isRolling && currentDice === item.d6 ? 'bg-transparent text-black' : 'bg-gray-800 text-red-100'
                               }`}>{item.personagem}</td>
-                              <td className={`border border-red-800 px-2 py-2 sm:px-4 sm:py-2 hidden sm:table-cell ${
+                              <td className={`border border-red-800 px-2 py-2  ${
                                 isRolling && currentDice === item.d6 ? 'bg-transparent text-black' : 'bg-gray-800 text-red-100'
                               }`}>{item.evento}</td>
                             </tr>
                           ))}
                         </tbody>
                       </table>
-                      {/* Mobile Details */}
-                      <div className="sm:hidden mt-4 space-y-2">
-                        {zombieRpgTables.cena.map((item) => (
-                          currentResult?.d6 === item.d6 && (
-                            <div key={`mobile-${item.d6}`} className="bg-gray-700 p-3 rounded-lg border border-red-600 space-y-2">
-                              <div>
-                                <span className="font-semibold text-red-100">Personagem:</span> {item.personagem}
-                              </div>
-                              <div>
-                                <span className="font-semibold text-red-100">Evento:</span> {item.evento}
-                              </div>
-                            </div>
-                          )
-                        ))}
-                      </div>
                     </div>
                   </TabsContent>
                   
                   <TabsContent value="bancoIdeias" className="mt-4 sm:mt-6">
-                    <div className="overflow-x-auto">
-                      <table className="w-full border-collapse text-xs sm:text-sm">
+                    <div className="overflow-auto max-h-[28rem] rounded-lg border border-red-800 zombie-scrollbar ">
+                      <table className="w-full min-w-[800px] border-collapse text-sm">
                         <thead>
                           <tr className="bg-gray-700">
-                            <th className="border border-red-800 px-2 py-2 sm:px-4 sm:py-2 text-left text-red-100">D6</th>
-                            <th className="border border-red-800 px-2 py-2 sm:px-4 sm:py-2 text-left text-red-100">Assunto</th>
-                            <th className="border border-red-800 px-2 py-2 sm:px-4 sm:py-2 text-left hidden sm:table-cell text-red-100">Ação</th>
-                            <th className="border border-red-800 px-2 py-2 sm:px-4 sm:py-2 text-left hidden sm:table-cell text-red-100">Coisa</th>
-                            <th className="border border-red-800 px-2 py-2 sm:px-4 sm:py-2 text-left hidden sm:table-cell text-red-100">Item</th>
-                            <th className="border border-red-800 px-2 py-2 sm:px-4 sm:py-2 text-left hidden sm:table-cell text-red-100">Arma</th>
-                            <th className="border border-red-800 px-2 py-2 sm:px-4 sm:py-2 text-left hidden sm:table-cell text-red-100">Qualidade</th>
+                            <th className="border border-red-800 px-2 py-2 text-left text-red-100">D6</th>
+                            <th className="border border-red-800 px-2 py-2 text-left text-red-100">Assunto</th>
+                            <th className="border border-red-800 px-2 py-2 text-left  text-red-100">Ação</th>
+                            <th className="border border-red-800 px-2 py-2 text-left  text-red-100">Coisa</th>
+                            <th className="border border-red-800 px-2 py-2 text-left  text-red-100">Item</th>
+                            <th className="border border-red-800 px-2 py-2 text-left  text-red-100">Arma</th>
+                            <th className="border border-red-800 px-2 py-2 text-left  text-red-100">Qualidade</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -811,60 +772,36 @@ export default function ZombieRPG() {
                                     : 'hover:bg-gray-600'
                               }`}
                             >
-                              <td className={`border border-red-800 px-2 py-2 sm:px-4 sm:py-2 ${
+                              <td className={`border border-red-800 px-2 py-2 ${
                                 isRolling && currentDice === item.d6 ? 'bg-transparent' : 'bg-gray-800'
                               }`}>
-                                <div className="flex items-center gap-1 sm:gap-2">
-                                  <DiceIcon value={item.d6} size={16} className={`${isRolling && currentDice === item.d6 ? 'text-black' : 'text-yellow-400'} sm:size-4`} />
+                                <div className="flex items-center gap-2">
+                                  <DiceIcon value={item.d6} size={16} className={`${isRolling && currentDice === item.d6 ? 'text-black' : 'text-yellow-400'} `} />
                                   <span className={`font-medium ${isRolling && currentDice === item.d6 ? 'text-black' : 'text-white'}`}>{item.d6}</span>
                                 </div>
                               </td>
-                              <td className={`border border-red-800 px-2 py-2 sm:px-4 sm:py-2 ${
+                              <td className={`border border-red-800 px-2 py-2 ${
                                 isRolling && currentDice === item.d6 ? 'bg-transparent text-black' : 'bg-gray-800 text-red-100'
                               }`}>{item.assunto}</td>
-                              <td className={`border border-red-800 px-2 py-2 sm:px-4 sm:py-2 hidden sm:table-cell ${
+                              <td className={`border border-red-800 px-2 py-2  ${
                                 isRolling && currentDice === item.d6 ? 'bg-transparent text-black' : 'bg-gray-800 text-red-100'
                               }`}>{item.acao}</td>
-                              <td className={`border border-red-800 px-2 py-2 sm:px-4 sm:py-2 hidden sm:table-cell ${
+                              <td className={`border border-red-800 px-2 py-2  ${
                                 isRolling && currentDice === item.d6 ? 'bg-transparent text-black' : 'bg-gray-800 text-red-100'
                               }`}>{item.coisa}</td>
-                              <td className={`border border-red-800 px-2 py-2 sm:px-4 sm:py-2 hidden sm:table-cell ${
+                              <td className={`border border-red-800 px-2 py-2  ${
                                 isRolling && currentDice === item.d6 ? 'bg-transparent text-black' : 'bg-gray-800 text-red-100'
                               }`}>{item.item}</td>
-                              <td className={`border border-red-800 px-2 py-2 sm:px-4 sm:py-2 hidden sm:table-cell ${
+                              <td className={`border border-red-800 px-2 py-2  ${
                                 isRolling && currentDice === item.d6 ? 'bg-transparent text-black' : 'bg-gray-800 text-red-100'
                               }`}>{item.arma}</td>
-                              <td className={`border border-red-800 px-2 py-2 sm:px-4 sm:py-2 hidden sm:table-cell ${
+                              <td className={`border border-red-800 px-2 py-2  ${
                                 isRolling && currentDice === item.d6 ? 'bg-transparent text-black' : 'bg-gray-800 text-red-100'
                               }`}>{item.qualidade}</td>
                             </tr>
                           ))}
                         </tbody>
                       </table>
-                      {/* Mobile Details */}
-                      <div className="sm:hidden mt-4 space-y-2">
-                        {zombieRpgTables.bancoIdeias.map((item) => (
-                          currentResult?.d6 === item.d6 && (
-                            <div key={`mobile-${item.d6}`} className="bg-gray-700 p-3 rounded-lg border border-red-600 space-y-2">
-                              <div>
-                                <span className="font-semibold text-red-100">Ação:</span> {item.acao}
-                              </div>
-                              <div>
-                                <span className="font-semibold text-red-100">Coisa:</span> {item.coisa}
-                              </div>
-                              <div>
-                                <span className="font-semibold text-red-100">Item:</span> {item.item}
-                              </div>
-                              <div>
-                                <span className="font-semibold text-red-100">Arma:</span> {item.arma}
-                              </div>
-                              <div>
-                                <span className="font-semibold text-red-100">Qualidade:</span> {item.qualidade}
-                              </div>
-                            </div>
-                          )
-                        ))}
-                      </div>
                     </div>
                   </TabsContent>
                 </Tabs>

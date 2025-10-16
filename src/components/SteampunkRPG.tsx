@@ -12,6 +12,7 @@ import { Dice1, Dice2, Dice3, Dice4, Dice5, Dice6, Sparkles, BookOpen, Users, Ma
 import CharacterCard from '@/components/CharacterCard'
 import { useTheme } from '@/contexts/ThemeContext'
 import '@/styles/animations.css'
+import '@/styles/scrollbar.css'
 
 interface RollResult {
   table: string
@@ -343,7 +344,7 @@ export default function SteampunkRPG() {
               </div>
               <div className="text-center sm:text-left">
                 <h1 className="text-2xl sm:text-3xl font-bold text-amber-100">DOMINUS RPG</h1>
-                <p className="text-amber-300 text-xs sm:text-sm">Sistema de Fantasia Steampunk</p>
+                <p className="text-amber-300 text-sm">Sistema de Fantasia Steampunk</p>
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -358,7 +359,7 @@ export default function SteampunkRPG() {
                 <span className="sm:hidden">🏠</span>
               </Button>
               <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-amber-300" />
-              <span className="text-amber-200 text-xs sm:text-sm">Era Vitoriana Alternativa</span>
+              <span className="text-amber-200 text-sm">Era Vitoriana Alternativa</span>
             </div>
           </div>
         </div>
@@ -393,25 +394,25 @@ export default function SteampunkRPG() {
                     O sistema usa mecânicas simples baseadas em D6 para gerar histórias dinâmicas e colaborativas.
                   </p>
                   <div className="flex flex-wrap justify-center sm:justify-start gap-2 mt-4">
-                    <Badge variant="secondary" className="bg-amber-200 text-amber-900 border-amber-400 text-xs sm:text-sm">
+                    <Badge variant="secondary" className="bg-amber-200 text-amber-900 border-amber-400 text-sm">
                       ⚙️ Steampunk
                     </Badge>
-                    <Badge variant="secondary" className="bg-amber-200 text-amber-900 border-amber-400 text-xs sm:text-sm">
+                    <Badge variant="secondary" className="bg-amber-200 text-amber-900 border-amber-400 text-sm">
                       🔮 Magia Tecnológica
                     </Badge>
-                    <Badge variant="secondary" className="bg-amber-200 text-amber-900 border-amber-400 text-xs sm:text-sm">
+                    <Badge variant="secondary" className="bg-amber-200 text-amber-900 border-amber-400 text-sm">
                       🎭 Aventura e Mistério
                     </Badge>
-                    <Badge variant="secondary" className="bg-amber-200 text-amber-900 border-amber-400 text-xs sm:text-sm">
+                    <Badge variant="secondary" className="bg-amber-200 text-amber-900 border-amber-400 text-sm">
                       🎲 D6 System
                     </Badge>
-                    <Badge variant="secondary" className="bg-blue-200 text-blue-900 border-blue-400 text-xs sm:text-sm">
+                    <Badge variant="secondary" className="bg-blue-200 text-blue-900 border-blue-400 text-sm">
                       🎯 Sem Mestre
                     </Badge>
-                    <Badge variant="secondary" className="bg-green-200 text-green-900 border-green-400 text-xs sm:text-sm">
+                    <Badge variant="secondary" className="bg-green-200 text-green-900 border-green-400 text-sm">
                       👥 Cooperativo
                     </Badge>
-                    <Badge variant="secondary" className="bg-purple-200 text-purple-900 border-purple-400 text-xs sm:text-sm">
+                    <Badge variant="secondary" className="bg-purple-200 text-purple-900 border-purple-400 text-sm">
                       🔮 Modo Oráculo
                     </Badge>
                   </div>
@@ -471,10 +472,10 @@ export default function SteampunkRPG() {
                   <ScrollArea className="h-24 sm:h-32">
                     <div className="space-y-2">
                       {rollHistory.length === 0 ? (
-                        <p className="text-gray-500 text-xs sm:text-sm">Nenhuma rolagem ainda</p>
+                        <p className="text-gray-500 text-sm">Nenhuma rolagem ainda</p>
                       ) : (
                         rollHistory.map((roll, index) => (
-                          <div key={index} className="flex items-center gap-2 text-xs sm:text-sm">
+                          <div key={index} className="flex items-center gap-2 text-sm">
                             <DiceIcon value={roll.result} size={14} className="sm:size-4" />
                             <span className="font-medium">{roll.result}</span>
                             <span className="text-gray-600">- {getTableName(roll.table)}</span>
@@ -503,24 +504,24 @@ export default function SteampunkRPG() {
               <CardContent className="p-3 sm:p-6">
                 <Tabs value={selectedTable} onValueChange={setSelectedTable} className="w-full">
                   <TabsList className="grid w-full grid-cols-2 sm:grid-cols-5 bg-amber-100 h-auto min-h-[44px] gap-1">
-                    <TabsTrigger value="oraculo" className="data-[state=active]:bg-amber-700 data-[state=active]:text-white text-xs sm:text-sm px-1 sm:px-3 py-2">
+                    <TabsTrigger value="oraculo" className="data-[state=active]:bg-amber-700 data-[state=active]:text-white text-sm px-1 sm:px-3 py-2">
                       <HelpCircle className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
                       <span className="hidden sm:inline">Oráculo</span>
                       <span className="sm:hidden">🔮</span>
                     </TabsTrigger>
-                    <TabsTrigger value="trama" className="data-[state=active]:bg-amber-700 data-[state=active]:text-white text-xs sm:text-sm px-1 sm:px-3 py-2">
+                    <TabsTrigger value="trama" className="data-[state=active]:bg-amber-700 data-[state=active]:text-white text-sm px-1 sm:px-3 py-2">
                       <span className="hidden sm:inline">Trama</span>
                       <span className="sm:hidden">📖</span>
                     </TabsTrigger>
-                    <TabsTrigger value="personagem" className="data-[state=active]:bg-amber-700 data-[state=active]:text-white text-xs sm:text-sm px-1 sm:px-3 py-2">
+                    <TabsTrigger value="personagem" className="data-[state=active]:bg-amber-700 data-[state=active]:text-white text-sm px-1 sm:px-3 py-2">
                       <span className="hidden sm:inline">Personagem</span>
                       <span className="sm:hidden">👤</span>
                     </TabsTrigger>
-                    <TabsTrigger value="cena" className="data-[state=active]:bg-amber-700 data-[state=active]:text-white text-xs sm:text-sm px-1 sm:px-3 py-2">
+                    <TabsTrigger value="cena" className="data-[state=active]:bg-amber-700 data-[state=active]:text-white text-sm px-1 sm:px-3 py-2">
                       <span className="hidden sm:inline">Cena</span>
                       <span className="sm:hidden">🎬</span>
                     </TabsTrigger>
-                    <TabsTrigger value="bancoIdeias" className="data-[state=active]:bg-amber-700 data-[state=active]:text-white text-xs sm:text-sm px-1 sm:px-3 py-2">
+                    <TabsTrigger value="bancoIdeias" className="data-[state=active]:bg-amber-700 data-[state=active]:text-white text-sm px-1 sm:px-3 py-2">
                       <span className="hidden sm:inline">Banco</span>
                       <span className="sm:hidden">💡</span>
                     </TabsTrigger>
@@ -531,13 +532,13 @@ export default function SteampunkRPG() {
                       <h3 className="text-lg sm:text-xl font-semibold text-amber-900 mb-2">Modo Oráculo</h3>
                       <p className="text-amber-700 text-sm sm:text-base">Role o dado para receber respostas diretas: 1-3 = NÃO/Fracasso, 4-6 = SIM/Sucesso</p>
                     </div>
-                    <div className="overflow-x-auto">
-                      <table className="w-full border-collapse text-xs sm:text-sm">
+                    <div className="overflow-auto max-h-[28rem] rounded-lg border border-amber-800 steampunk-scrollbar">
+                      <table className="w-full min-w-[800px] border-collapse text-sm">
                         <thead>
                           <tr className="bg-amber-100">
-                            <th className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2 text-left">D6</th>
-                            <th className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2 text-left">Resultado</th>
-                            <th className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2 text-left hidden sm:table-cell">Descrição</th>
+                            <th className="border border-amber-800 px-2 py-2 text-left">D6</th>
+                            <th className="border border-amber-800 px-2 py-2 text-left">Resultado</th>
+                            <th className="border border-amber-800 px-2 py-2 text-left">Descrição</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -546,47 +547,37 @@ export default function SteampunkRPG() {
                               key={item.d6} 
                               className={`hover:bg-amber-50 ${currentResult?.d6 === item.d6 ? 'bg-yellow-100 font-semibold' : ''}`}
                             >
-                              <td className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2">
-                                <div className="flex items-center gap-1 sm:gap-2">
-                                  <DiceIcon value={item.d6} size={16} className="text-amber-700 sm:size-5" />
+                              <td className="border border-amber-800 px-2 py-2">
+                                <div className="flex items-center gap-2">
+                                  <DiceIcon value={item.d6} size={16} className="text-amber-700" />
                                   <span className="font-medium">{item.d6}</span>
                                 </div>
                               </td>
-                              <td className={`border border-amber-800 px-2 py-2 sm:px-4 sm:py-2 font-bold ${item.cor}`}>
-                                <div className="flex flex-col sm:block">
+                              <td className={`border border-amber-800 px-2 py-2 font-bold ${item.cor}`}>
+                                <div className="flex flex-col">
                                   <span>{item.resultado.split(' / ')[0]}</span>
-                                  <span className="text-xs sm:text-sm sm:inline">{item.resultado.split(' / ')[1]}</span>
+                                  <span className="text-sm">{item.resultado.split(' / ')[1]}</span>
                                 </div>
                               </td>
-                              <td className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2 text-gray-700 hidden sm:table-cell">
+                              <td className="border border-amber-800 px-2 py-2 text-gray-700">
                                 {item.descricao}
                               </td>
                             </tr>
                           ))}
                         </tbody>
                       </table>
-                      {/* Mobile Description */}
-                      <div className="sm:hidden mt-4 space-y-2">
-                        {rpgTables.oraculo.map((item) => (
-                          currentResult?.d6 === item.d6 && (
-                            <div key={`mobile-${item.d6}`} className="bg-amber-50 p-3 rounded-lg border border-amber-200">
-                              <p className="text-xs text-gray-700">{item.descricao}</p>
-                            </div>
-                          )
-                        ))}
-                      </div>
                     </div>
                   </TabsContent>
                   
                   <TabsContent value="trama" className="mt-4 sm:mt-6">
-                    <div className="overflow-x-auto">
-                      <table className="w-full border-collapse text-xs sm:text-sm">
+                    <div className="overflow-auto max-h-[28rem] rounded-lg border border-amber-800 steampunk-scrollbar">
+                      <table className="w-full min-w-[800px] border-collapse text-sm">
                         <thead>
                           <tr className="bg-amber-100">
-                            <th className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2 text-left">D6</th>
-                            <th className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2 text-left">Aconteceu...</th>
-                            <th className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2 text-left hidden sm:table-cell">Precisa...</th>
-                            <th className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2 text-left hidden sm:table-cell">Senão...</th>
+                            <th className="border border-amber-800 px-2 py-2 text-left">D6</th>
+                            <th className="border border-amber-800 px-2 py-2 text-left">Aconteceu...</th>
+                            <th className="border border-amber-800 px-2 py-2 text-left">Precisa...</th>
+                            <th className="border border-amber-800 px-2 py-2 text-left">Senão...</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -595,44 +586,29 @@ export default function SteampunkRPG() {
                               key={item.d6} 
                               className={`hover:bg-amber-50 ${currentResult?.d6 === item.d6 ? 'bg-yellow-100 font-semibold' : ''}`}
                             >
-                              <td className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2">
-                                <div className="flex items-center gap-1 sm:gap-2">
-                                  <DiceIcon value={item.d6} size={16} className="text-amber-700 sm:size-4" />
+                              <td className="border border-amber-800 px-2 py-2">
+                                <div className="flex items-center gap-2">
+                                  <DiceIcon value={item.d6} size={16} className="text-amber-700" />
                                   <span className="font-medium">{item.d6}</span>
                                 </div>
                               </td>
-                              <td className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2">{item.aconteceu}</td>
-                              <td className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2 hidden sm:table-cell">{item.precisa}</td>
-                              <td className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2 hidden sm:table-cell">{item.senao}</td>
+                              <td className="border border-amber-800 px-2 py-2">{item.aconteceu}</td>
+                              <td className="border border-amber-800 px-2 py-2">{item.precisa}</td>
+                              <td className="border border-amber-800 px-2 py-2">{item.senao}</td>
                             </tr>
                           ))}
                         </tbody>
                       </table>
-                      {/* Mobile Details */}
-                      <div className="sm:hidden mt-4 space-y-2">
-                        {rpgTables.trama.map((item) => (
-                          currentResult?.d6 === item.d6 && (
-                            <div key={`mobile-${item.d6}`} className="bg-amber-50 p-3 rounded-lg border border-amber-200 space-y-2">
-                              <div>
-                                <span className="font-semibold text-amber-900">Precisa:</span> {item.precisa}
-                              </div>
-                              <div>
-                                <span className="font-semibold text-amber-900">Senão:</span> {item.senao}
-                              </div>
-                            </div>
-                          )
-                        ))}
-                      </div>
                     </div>
                   </TabsContent>
                   
                   <TabsContent value="personagem" className="mt-4 sm:mt-6">
-                    <div className="overflow-x-auto">
-                      <table className="w-full border-collapse text-xs sm:text-sm">
+                    <div className="overflow-auto max-h-[28rem] rounded-lg border border-amber-800 steampunk-scrollbar">
+                      <table className="w-full min-w-[800px] border-collapse text-sm">
                         <thead>
                           <tr className="bg-amber-100">
-                            <th className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2 text-left">D6</th>
-                            <th className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2 text-left">Descrição</th>
+                            <th className="border border-amber-800 px-2 py-2 text-left">D6</th>
+                            <th className="border border-amber-800 px-2 py-2 text-left">Descrição</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -645,14 +621,14 @@ export default function SteampunkRPG() {
                                 selectedCharacter?.id === item.d6 ? 'ring-2 ring-amber-600 ring-inset' : ''
                               }`}
                             >
-                              <td className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2">
-                                <div className="flex items-center gap-1 sm:gap-2">
-                                  <DiceIcon value={item.d6} size={16} className="text-amber-700 sm:size-4" />
+                              <td className="border border-amber-800 px-2 py-2">
+                                <div className="flex items-center gap-2">
+                                  <DiceIcon value={item.d6} size={16} className="text-amber-700" />
                                   <span className="font-medium">{item.d6}</span>
                                 </div>
                               </td>
-                              <td className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2">
-                                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                              <td className="border border-amber-800 px-2 py-2">
+                                <div className="flex items-center justify-between gap-2">
                                   <span dangerouslySetInnerHTML={{ __html: item.descricao }} />
                                   <Button
                                     size="sm"
@@ -676,14 +652,14 @@ export default function SteampunkRPG() {
                   </TabsContent>
                   
                   <TabsContent value="cena" className="mt-4 sm:mt-6">
-                    <div className="overflow-x-auto">
-                      <table className="w-full border-collapse text-xs sm:text-sm">
+                    <div className="overflow-auto max-h-[28rem] rounded-lg border border-amber-800 steampunk-scrollbar">
+                      <table className="w-full min-w-[800px] border-collapse text-sm">
                         <thead>
                           <tr className="bg-amber-100">
-                            <th className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2 text-left">D6</th>
-                            <th className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2 text-left">Lugar</th>
-                            <th className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2 text-left hidden sm:table-cell">Personagem (NPC)</th>
-                            <th className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2 text-left hidden sm:table-cell">Evento</th>
+                            <th className="border border-amber-800 px-2 py-2 text-left">D6</th>
+                            <th className="border border-amber-800 px-2 py-2 text-left">Lugar</th>
+                            <th className="border border-amber-800 px-2 py-2 text-left">Personagem (NPC)</th>
+                            <th className="border border-amber-800 px-2 py-2 text-left">Evento</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -692,49 +668,34 @@ export default function SteampunkRPG() {
                               key={item.d6} 
                               className={`hover:bg-amber-50 ${currentResult?.d6 === item.d6 ? 'bg-yellow-100 font-semibold' : ''}`}
                             >
-                              <td className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2">
-                                <div className="flex items-center gap-1 sm:gap-2">
-                                  <DiceIcon value={item.d6} size={16} className="text-amber-700 sm:size-4" />
+                              <td className="border border-amber-800 px-2 py-2">
+                                <div className="flex items-center gap-2">
+                                  <DiceIcon value={item.d6} size={16} className="text-amber-700" />
                                   <span className="font-medium">{item.d6}</span>
                                 </div>
                               </td>
-                              <td className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2">{item.lugar}</td>
-                              <td className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2 hidden sm:table-cell">{item.personagem}</td>
-                              <td className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2 hidden sm:table-cell">{item.evento}</td>
+                              <td className="border border-amber-800 px-2 py-2">{item.lugar}</td>
+                              <td className="border border-amber-800 px-2 py-2">{item.personagem}</td>
+                              <td className="border border-amber-800 px-2 py-2">{item.evento}</td>
                             </tr>
                           ))}
                         </tbody>
                       </table>
-                      {/* Mobile Details */}
-                      <div className="sm:hidden mt-4 space-y-2">
-                        {rpgTables.cena.map((item) => (
-                          currentResult?.d6 === item.d6 && (
-                            <div key={`mobile-${item.d6}`} className="bg-amber-50 p-3 rounded-lg border border-amber-200 space-y-2">
-                              <div>
-                                <span className="font-semibold text-amber-900">Personagem:</span> {item.personagem}
-                              </div>
-                              <div>
-                                <span className="font-semibold text-amber-900">Evento:</span> {item.evento}
-                              </div>
-                            </div>
-                          )
-                        ))}
-                      </div>
                     </div>
                   </TabsContent>
                   
                   <TabsContent value="bancoIdeias" className="mt-4 sm:mt-6">
-                    <div className="overflow-x-auto">
-                      <table className="w-full border-collapse text-xs sm:text-sm">
+                    <div className="overflow-auto max-h-[28rem] rounded-lg border border-amber-800 steampunk-scrollbar">
+                      <table className="w-full min-w-[800px] border-collapse text-sm">
                         <thead>
                           <tr className="bg-amber-100">
-                            <th className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2 text-left">D6</th>
-                            <th className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2 text-left">Assunto</th>
-                            <th className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2 text-left hidden sm:table-cell">Ação</th>
-                            <th className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2 text-left hidden sm:table-cell">Coisa</th>
-                            <th className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2 text-left hidden sm:table-cell">Item</th>
-                            <th className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2 text-left hidden sm:table-cell">Arma</th>
-                            <th className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2 text-left hidden sm:table-cell">Qualidade</th>
+                            <th className="border border-amber-800 px-2 py-2 text-left">D6</th>
+                            <th className="border border-amber-800 px-2 py-2 text-left">Assunto</th>
+                            <th className="border border-amber-800 px-2 py-2 text-left">Ação</th>
+                            <th className="border border-amber-800 px-2 py-2 text-left">Coisa</th>
+                            <th className="border border-amber-800 px-2 py-2 text-left">Item</th>
+                            <th className="border border-amber-800 px-2 py-2 text-left">Arma</th>
+                            <th className="border border-amber-800 px-2 py-2 text-left">Qualidade</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -743,18 +704,18 @@ export default function SteampunkRPG() {
                               key={item.d6} 
                               className={`hover:bg-amber-50 ${currentResult?.d6 === item.d6 ? 'bg-yellow-100 font-semibold' : ''}`}
                             >
-                              <td className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2">
-                                <div className="flex items-center gap-1 sm:gap-2">
-                                  <DiceIcon value={item.d6} size={16} className="text-amber-700 sm:size-4" />
+                              <td className="border border-amber-800 px-2 py-2">
+                                <div className="flex items-center gap-2">
+                                  <DiceIcon value={item.d6} size={16} className="text-amber-700" />
                                   <span className="font-medium">{item.d6}</span>
                                 </div>
                               </td>
-                              <td className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2">{item.assunto}</td>
-                              <td className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2 hidden sm:table-cell">{item.acao}</td>
-                              <td className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2 hidden sm:table-cell">{item.coisa}</td>
-                              <td className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2 hidden sm:table-cell">{item.item}</td>
-                              <td className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2 hidden sm:table-cell">{item.arma}</td>
-                              <td className="border border-amber-800 px-2 py-2 sm:px-4 sm:py-2 hidden sm:table-cell">{item.qualidade}</td>
+                              <td className="border border-amber-800 px-2 py-2">{item.assunto}</td>
+                              <td className="border border-amber-800 px-2 py-2">{item.acao}</td>
+                              <td className="border border-amber-800 px-2 py-2">{item.coisa}</td>
+                              <td className="border border-amber-800 px-2 py-2">{item.item}</td>
+                              <td className="border border-amber-800 px-2 py-2">{item.arma}</td>
+                              <td className="border border-amber-800 px-2 py-2">{item.qualidade}</td>
                             </tr>
                           ))}
                         </tbody>
