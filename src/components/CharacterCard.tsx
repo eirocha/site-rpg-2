@@ -10,19 +10,7 @@ interface CharacterCardProps {
   character: {
     id: number
     name: string
-    title: string
     description: string
-    image: string
-    skills: string[]
-    attributes: {
-      strength: number
-      intelligence: number
-      agility: number
-      charisma: number
-    }
-    equipment: string[]
-    backstory: string
-    roleplay: string[]
   }
   isOpen: boolean
   onClose: () => void
@@ -178,43 +166,43 @@ export default function CharacterCard({ character, isOpen, onClose }: CharacterC
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-amber-800">
+      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-amber-800 mx-4 sm:mx-auto my-4 sm:my-auto">
         <DialogHeader className="relative">
           <button
             onClick={onClose}
-            className="absolute right-4 top-4 p-2 rounded-full bg-amber-100 hover:bg-amber-200 transition-colors"
+            className="absolute right-4 top-4 p-2 rounded-full bg-amber-100 hover:bg-amber-200 transition-colors z-10 min-h-[44px] min-w-[44px] flex items-center justify-center"
           >
-            <X className="w-4 h-4" />
+            <X className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
-          <DialogTitle className="text-2xl font-bold text-amber-900 pr-8">
+          <DialogTitle className="text-xl sm:text-2xl font-bold text-amber-900 pr-8 sm:pr-12">
             {fullCharacter.name}
           </DialogTitle>
-          <DialogDescription className="text-amber-700 font-medium">
+          <DialogDescription className="text-amber-700 font-medium text-sm sm:text-base">
             {fullCharacter.title}
           </DialogDescription>
         </DialogHeader>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 mt-4">
           {/* Imagem e Informações Básicas */}
           <div className="space-y-4">
             <div className="relative overflow-hidden rounded-lg border-2 border-amber-800">
               <img
                 src={fullCharacter.image}
                 alt={fullCharacter.name}
-                className="w-full h-80 object-cover"
+                className="w-full h-48 sm:h-64 lg:h-80 object-cover"
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                <h3 className="text-white font-bold text-lg">{fullCharacter.name}</h3>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3 sm:p-4">
+                <h3 className="text-white font-bold text-base sm:text-lg">{fullCharacter.name}</h3>
               </div>
             </div>
             
             <Card className="border-amber-700">
-              <CardContent className="p-4">
-                <h4 className="font-bold text-amber-900 mb-2 flex items-center gap-2">
+              <CardContent className="p-3 sm:p-4">
+                <h4 className="font-bold text-amber-900 mb-2 flex items-center gap-2 text-sm sm:text-base">
                   <Star className="w-4 h-4" />
                   Descrição
                 </h4>
-                <p className="text-gray-700 text-sm leading-relaxed">
+                <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
                   {fullCharacter.description}
                 </p>
               </CardContent>
@@ -224,12 +212,12 @@ export default function CharacterCard({ character, isOpen, onClose }: CharacterC
           {/* Atributos e Habilidades */}
           <div className="space-y-4">
             <Card className="border-amber-700">
-              <CardContent className="p-4">
-                <h4 className="font-bold text-amber-900 mb-4 flex items-center gap-2">
+              <CardContent className="p-3 sm:p-4">
+                <h4 className="font-bold text-amber-900 mb-3 sm:mb-4 flex items-center gap-2 text-sm sm:text-base">
                   <Shield className="w-4 h-4" />
                   Atributos
                 </h4>
-                <div className="space-y-3">
+                <div className="space-y-2 sm:space-y-3">
                   <AttributeBar value={fullCharacter.attributes.strength} icon={Zap} label="Força" />
                   <AttributeBar value={fullCharacter.attributes.intelligence} icon={Star} label="Inteligência" />
                   <AttributeBar value={fullCharacter.attributes.agility} icon={Zap} label="Agilidade" />
@@ -239,14 +227,14 @@ export default function CharacterCard({ character, isOpen, onClose }: CharacterC
             </Card>
             
             <Card className="border-amber-700">
-              <CardContent className="p-4">
-                <h4 className="font-bold text-amber-900 mb-3 flex items-center gap-2">
+              <CardContent className="p-3 sm:p-4">
+                <h4 className="font-bold text-amber-900 mb-2 sm:mb-3 flex items-center gap-2 text-sm sm:text-base">
                   <Wrench className="w-4 h-4" />
                   Habilidades
                 </h4>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1 sm:gap-2">
                   {fullCharacter.skills.map((skill, index) => (
-                    <Badge key={index} variant="secondary" className="bg-amber-100 text-amber-800 border-amber-300">
+                    <Badge key={index} variant="secondary" className="bg-amber-100 text-amber-800 border-amber-300 text-xs">
                       {skill}
                     </Badge>
                   ))}
@@ -256,26 +244,26 @@ export default function CharacterCard({ character, isOpen, onClose }: CharacterC
           </div>
         </div>
         
-        <Separator className="my-6" />
+        <Separator className="my-4 sm:my-6" />
         
         {/* História e Roleplay */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
           <Card className="border-amber-700">
-            <CardContent className="p-4">
-              <h4 className="font-bold text-amber-900 mb-3">História</h4>
-              <p className="text-gray-700 text-sm leading-relaxed">
+            <CardContent className="p-3 sm:p-4">
+              <h4 className="font-bold text-amber-900 mb-2 sm:mb-3 text-sm sm:text-base">História</h4>
+              <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
                 {fullCharacter.backstory}
               </p>
             </CardContent>
           </Card>
           
           <Card className="border-amber-700">
-            <CardContent className="p-4">
-              <h4 className="font-bold text-amber-900 mb-3">Dicas de Roleplay</h4>
-              <ul className="space-y-2">
+            <CardContent className="p-3 sm:p-4">
+              <h4 className="font-bold text-amber-900 mb-2 sm:mb-3 text-sm sm:text-base">Dicas de Roleplay</h4>
+              <ul className="space-y-1 sm:space-y-2">
                 {fullCharacter.roleplay.map((tip, index) => (
-                  <li key={index} className="text-sm text-gray-700 flex items-start gap-2">
-                    <span className="text-amber-600 mt-1">•</span>
+                  <li key={index} className="text-xs sm:text-sm text-gray-700 flex items-start gap-2">
+                    <span className="text-amber-600 mt-0.5 sm:mt-1">•</span>
                     <span>{tip}</span>
                   </li>
                 ))}
@@ -286,12 +274,12 @@ export default function CharacterCard({ character, isOpen, onClose }: CharacterC
         
         {/* Equipamento */}
         <Card className="border-amber-700">
-          <CardContent className="p-4">
-            <h4 className="font-bold text-amber-900 mb-3">Equipamento Inicial</h4>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+          <CardContent className="p-3 sm:p-4">
+            <h4 className="font-bold text-amber-900 mb-2 sm:mb-3 text-sm sm:text-base">Equipamento Inicial</h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
               {fullCharacter.equipment.map((item, index) => (
-                <div key={index} className="bg-amber-100 rounded-lg p-3 text-center">
-                  <p className="text-sm font-medium text-amber-900">{item}</p>
+                <div key={index} className="bg-amber-100 rounded-lg p-2 sm:p-3 text-center">
+                  <p className="text-xs sm:text-sm font-medium text-amber-900">{item}</p>
                 </div>
               ))}
             </div>
