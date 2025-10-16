@@ -100,27 +100,33 @@ const rpgTables = {
   personagem: [
     {
       d6: 1,
-      descricao: "**Engenheiro de Campo:** Conserta máquinas com sucata e intuição."
+      descricao: "**Engenheiro de Campo:** Conserta máquinas com sucata e intuição.",
+      image: "/images/steampunk-engineer.png"
     },
     {
       d6: 2,
-      descricao: "**Agente da Coroa:** Usa gadgets e disfarces para se infiltrar."
+      descricao: "**Agente da Coroa:** Usa gadgets e disfarces para se infiltrar.",
+      image: "/images/steampunk-detective.png"
     },
     {
       d6: 3,
-      descricao: "**Mago Tecnológico:** Encanta artefatos com runas e circuitos."
+      descricao: "**Mago Tecnológico:** Encanta artefatos com runas e circuitos.",
+      image: "/images/steampunk-scientist.png"
     },
     {
       d6: 4,
-      descricao: "**Piloto de Dirigível:** Manobra com ousadia e precisão nos céus."
+      descricao: "**Piloto de Dirigível:** Manobra com ousadia e precisão nos céus.",
+      image: "/images/steampunk-pilot.png"
     },
     {
       d6: 5,
-      descricao: "**Investigador Alquímico:** Analisa pistas com compostos e lógica."
+      descricao: "**Investigador Alquímico:** Analisa pistas com compostos e lógica.",
+      image: "/images/steampunk-noble.png"
     },
     {
       d6: 6,
-      descricao: "**Forja-da-alma:** Cria itens com metais imbuídos de alma."
+      descricao: "**Forja-da-alma:** Cria itens com metais imbuídos de alma.",
+      image: "/images/steampunk-adventurer.png"
     }
   ],
   cena: [
@@ -318,7 +324,8 @@ export default function SteampunkRPG() {
     const character = {
       id: characterId,
       name: rpgTables.personagem[characterId - 1].descricao.split(':')[0].replace('**', ''),
-      description: rpgTables.personagem[characterId - 1].descricao.split(':')[1].trim()
+      description: rpgTables.personagem[characterId - 1].descricao.split(':')[1].trim(),
+      image: rpgTables.personagem[characterId - 1].image
     }
     setSelectedCharacter(character)
     setIsCharacterModalOpen(true)
@@ -628,20 +635,13 @@ export default function SteampunkRPG() {
                                 </div>
                               </td>
                               <td className="border border-amber-800 px-2 py-2">
-                                <div className="flex items-center justify-between gap-2">
+                                <div className="flex items-center gap-3">
+                                  <img 
+                                    src={item.image} 
+                                    alt={item.descricao.split(':')[0].replace('**', '')}
+                                    className="w-12 h-12 rounded-lg object-cover border-2 border-amber-600"
+                                  />
                                   <span dangerouslySetInnerHTML={{ __html: item.descricao }} />
-                                  <Button
-                                    size="sm"
-                                    variant="outline"
-                                    onClick={() => openCharacterCard(item.d6)}
-                                    className={`px-2 py-1 text-xs transition-all duration-200 hover:scale-105 min-h-[32px] ${
-                                      selectedCharacter?.id === item.d6 
-                                        ? 'bg-amber-600 text-white border-amber-700' 
-                                        : 'bg-amber-100 hover:bg-amber-200 border-amber-400 hover:border-amber-600 animate-glow'
-                                    }`}
-                                  >
-                                    {selectedCharacter?.id === item.d6 ? 'Card Aberto' : 'Ver Card'}
-                                  </Button>
                                 </div>
                               </td>
                             </tr>

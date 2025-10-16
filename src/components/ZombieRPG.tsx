@@ -105,27 +105,33 @@ const zombieRpgTables = {
   personagem: [
     {
       d6: 1,
-      descricao: "**Sobrevivente Militar:** Estrategista experiente em combate tático."
+      descricao: "**Sobrevivente Militar:** Estrategista experiente em combate tático.",
+      image: "/images/zombie-survivor.png"
     },
     {
       d6: 2,
-      descricao: "**Médico de Campo:** Conhece tratamentos improvisados e primeiros socorros."
+      descricao: "**Médico de Campo:** Conhece tratamentos improvisados e primeiros socorros.",
+      image: "/images/zombie-medic.png"
     },
     {
       d6: 3,
-      descricao: "**Ladrão de Suprimentos:** Especialista em infiltração e obtenção de recursos."
+      descricao: "**Ladrão de Suprimentos:** Especialista em infiltração e obtenção de recursos.",
+      image: "/images/zombie-scout.png"
     },
     {
       d6: 4,
-      descricao: "**Mecânico Refugiado:** Conserta veículos e equipamentos com sucata."
+      descricao: "**Mecânico Refugiado:** Conserta veículos e equipamentos com sucata.",
+      image: "/images/zombie-engineer.png"
     },
     {
       d6: 5,
-      descricao: "**Caçador de Infectados:** Especialista em eliminação silenciosa e patrulha."
+      descricao: "**Caçador de Infectados:** Especialista em eliminação silenciosa e patrulha.",
+      image: "/images/zombie-hunter.png"
     },
     {
       d6: 6,
-      descricao: "**Líder Comunitário:** Mantém a moral e organiza o grupo em crises."
+      descricao: "**Líder Comunitário:** Mantém a moral e organiza o grupo em crises.",
+      image: "/images/zombie-worker.png"
     }
   ],
   cena: [
@@ -323,7 +329,8 @@ export default function ZombieRPG() {
     const character = {
       id: characterId,
       name: zombieRpgTables.personagem[characterId - 1].descricao.split(':')[0].replace('**', ''),
-      description: zombieRpgTables.personagem[characterId - 1].descricao.split(':')[1].trim()
+      description: zombieRpgTables.personagem[characterId - 1].descricao.split(':')[1].trim(),
+      image: zombieRpgTables.personagem[characterId - 1].image
     }
     setSelectedCharacter(character)
     setIsCharacterModalOpen(true)
@@ -670,22 +677,13 @@ export default function ZombieRPG() {
                               <td className={`border border-red-800 px-2 py-2 ${
                                 isRolling && currentDice === item.d6 ? 'bg-transparent' : 'bg-gray-800'
                               }`}>
-                                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                                <div className="flex items-center gap-3">
+                                  <img 
+                                    src={item.image} 
+                                    alt={item.descricao.split(':')[0].replace('**', '')}
+                                    className="w-12 h-12 rounded-lg object-cover border-2 border-red-600"
+                                  />
                                   <span className={isRolling && currentDice === item.d6 ? 'text-black' : 'text-red-100'} dangerouslySetInnerHTML={{ __html: item.descricao }} />
-                                  <Button
-                                    size="sm"
-                                    variant="outline"
-                                    onClick={() => openCharacterCard(item.d6)}
-                                    className={`px-2 py-1 text-xs transition-all duration-200 hover:scale-105 min-h-[32px] ${
-                                      selectedCharacter?.id === item.d6 
-                                        ? 'bg-red-600 text-white border-red-700' 
-                                        : isRolling && currentDice === item.d6
-                                          ? 'bg-black text-yellow-400 border-black hover:bg-gray-900'
-                                          : 'bg-red-900 hover:bg-red-800 border-red-600 hover:border-red-500'
-                                    }`}
-                                  >
-                                    {selectedCharacter?.id === item.d6 ? 'Card Aberto' : 'Ver Card'}
-                                  </Button>
                                 </div>
                               </td>
                             </tr>

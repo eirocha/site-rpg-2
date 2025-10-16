@@ -11,6 +11,7 @@ interface CharacterCardProps {
     id: number
     name: string
     description: string
+    image?: string
   }
   isOpen: boolean
   onClose: () => void
@@ -187,8 +188,16 @@ export default function ZombieCharacterCard({ character, isOpen, onClose }: Char
           {/* Imagem e Informações Básicas */}
           <div className="space-y-4">
             <div className="relative overflow-hidden rounded-lg border-2 border-red-800">
-              <div className="w-full h-48 sm:h-64 lg:h-80 bg-gradient-to-br from-gray-700 to-red-800 flex items-center justify-center">
-                <Skull className="w-24 h-24 sm:w-32 sm:h-32 text-red-300 opacity-50" />
+              <div className="w-full h-64 sm:h-80 lg:h-96 bg-gradient-to-br from-gray-700 to-red-800 flex items-center justify-center">
+                {character.image ? (
+                  <img 
+                    src={character.image} 
+                    alt={fullCharacter.name}
+                    className="w-full h-full object-contain"
+                  />
+                ) : (
+                  <Skull className="w-24 h-24 sm:w-32 sm:h-32 text-red-300 opacity-50" />
+                )}
               </div>
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3 sm:p-4">
                 <h3 className="text-white font-bold text-base sm:text-lg">{fullCharacter.name}</h3>

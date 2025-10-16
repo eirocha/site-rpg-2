@@ -11,6 +11,7 @@ interface CharacterCardProps {
     id: number
     name: string
     description: string
+    image?: string
   }
   isOpen: boolean
   onClose: () => void
@@ -186,11 +187,19 @@ export default function CharacterCard({ character, isOpen, onClose }: CharacterC
           {/* Imagem e Informações Básicas */}
           <div className="space-y-4">
             <div className="relative overflow-hidden rounded-lg border-2 border-amber-800">
-              <img
-                src={fullCharacter.image}
-                alt={fullCharacter.name}
-                className="w-full h-48 sm:h-64 lg:h-80 object-cover"
-              />
+              {character.image ? (
+                <img
+                  src={character.image}
+                  alt={fullCharacter.name}
+                  className="w-full h-64 sm:h-80 lg:h-96 object-contain bg-gradient-to-br from-amber-100 to-orange-100"
+                />
+              ) : (
+                <img
+                  src={fullCharacter.image}
+                  alt={fullCharacter.name}
+                  className="w-full h-64 sm:h-80 lg:h-96 object-cover"
+                />
+              )}
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3 sm:p-4">
                 <h3 className="text-white font-bold text-base sm:text-lg">{fullCharacter.name}</h3>
               </div>
