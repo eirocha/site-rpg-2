@@ -24,7 +24,7 @@ interface SystemCard {
   features: string[]
   rating: number
   players: string
-  theme: 'steampunk' | 'zombie' | 'space'
+theme: 'steampunk' | 'zombie' | 'space'
   gradient: string
 }
 
@@ -72,7 +72,7 @@ const systems: SystemCard[] = [
     players: '1-4 jogadores',
     theme: 'zombie',
     gradient: 'from-red-800 via-red-700 to-orange-700'
-  },
+},
   {
     id: 'space',
     title: 'DOMINUS Espacial',
@@ -110,10 +110,9 @@ export default function Home() {
     return <ZombieRPG />
   }
 
-  if (currentTheme === 'space') {
+if (currentTheme === 'space') {
     return <SpaceRPG />
   }
-
   // Renderiza a página inicial (catálogo) se currentTheme for 'home'
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
@@ -191,7 +190,7 @@ export default function Home() {
             <p className="text-xl text-gray-400">Cada universo oferece uma experiência única de RPG</p>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {systems.map((system) => (
               <Card 
                 key={system.id}
