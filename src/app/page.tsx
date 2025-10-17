@@ -4,9 +4,10 @@ import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
-import { Play, Settings, Zap, Skull, Clock, Star, Users, BookOpen, ChevronRight, Sparkles, Gamepad2 } from 'lucide-react'
+import { Play, Settings, Zap, Skull, Clock, Star, Users, BookOpen, ChevronRight, Sparkles, Gamepad2, Rocket } from 'lucide-react'
 import SteampunkRPG from '@/components/SteampunkRPG'
 import ZombieRPG from '@/components/ZombieRPG'
+import SpaceRPG from '@/components/SpaceRPG'
 import { useTheme } from '@/contexts/ThemeContext'
 import '@/styles/animations.css'
 
@@ -23,7 +24,7 @@ interface SystemCard {
   features: string[]
   rating: number
   players: string
-  theme: 'steampunk' | 'zombie'
+  theme: 'steampunk' | 'zombie' | 'space'
   gradient: string
 }
 
@@ -71,6 +72,28 @@ const systems: SystemCard[] = [
     players: '1-4 jogadores',
     theme: 'zombie',
     gradient: 'from-red-800 via-red-700 to-orange-700'
+  },
+  {
+    id: 'space',
+    title: 'DOMINUS Espacial',
+    subtitle: 'Exploração Cósmica',
+    description: 'Explore as profundezas do espaço, encontre espécies alienígenas, descubra planetas habitáveis e enfente os perigos do cosmos em aventuras intergalácticas.',
+    background: 'linear-gradient(135deg, rgba(37, 99, 235, 0.9) 0%, rgba(59, 130, 246, 0.9) 25%, rgba(96, 165, 250, 0.9) 50%, rgba(147, 197, 253, 0.9) 75%, rgba(191, 219, 254, 0.9) 100%), url("/space-banner.jpg")',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    icon: <Rocket className="w-8 h-8" />,
+    badges: ['🚀 Exploração Espacial', '👽 Contato Alienígena', '⚡ Tecnologia Futurista', '🌌 Aventura Cósmica'],
+    features: [
+      'Sistema de Navegação',
+      'Modo Oráculo Cósmico',
+      'Tripulação Especializada',
+      'Cenas Estelares',
+      'Banco de Ideias Espaciais'
+    ],
+    rating: 4.7,
+    players: '2-5 jogadores',
+    theme: 'space',
+    gradient: 'from-blue-600 via-purple-600 to-indigo-600'
   }
 ]
 
@@ -85,6 +108,10 @@ export default function Home() {
   
   if (currentTheme === 'zombie') {
     return <ZombieRPG />
+  }
+
+  if (currentTheme === 'space') {
+    return <SpaceRPG />
   }
 
   // Renderiza a página inicial (catálogo) se currentTheme for 'home'
@@ -164,7 +191,7 @@ export default function Home() {
             <p className="text-xl text-gray-400">Cada universo oferece uma experiência única de RPG</p>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {systems.map((system) => (
               <Card 
                 key={system.id}

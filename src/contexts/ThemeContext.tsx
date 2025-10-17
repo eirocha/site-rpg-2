@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState, ReactNode } from 'react'
 
-type Theme = 'steampunk' | 'zombie' | 'home'
+type Theme = 'steampunk' | 'zombie' | 'space' | 'home'
 
 interface ThemeContextType {
   currentTheme: Theme
