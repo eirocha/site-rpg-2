@@ -211,7 +211,8 @@ npm run dev
 ```
 
 ### Acesso Online
-Visite: **https://eirocha.github.io/site-rpg-2/**
+- **Produção (Vercel)**: https://site-rpg-2.vercel.app/
+- **GitHub Pages**: https://eirocha.github.io/site-rpg-2/
 
 ### Passos para Jogar
 1. **Escolha seu Sistema** - Clique em um dos três temas
@@ -279,6 +280,7 @@ Este projeto está licenciado sob a **MIT License** - sinta-se livre para usar, 
 ## 📞 Contato
 
 **Projeto**: https://github.com/eirocha/site-rpg-2  
+**Produção**: https://site-rpg-2.vercel.app/  
 **Demo**: https://eirocha.github.io/site-rpg-2/  
 **Desenvolvido por**: [eirocha](https://github.com/eirocha)
 
