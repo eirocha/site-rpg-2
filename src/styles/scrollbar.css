@@ -1,0 +1,62 @@
+/* Scrollbar personalizada para tema Steampunk */
+.steampunk-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.steampunk-scrollbar::-webkit-scrollbar-track {
+  background: #fef3c7;
+  border-radius: 4px;
+  border: 1px solid #d97706;
+}
+
+.steampunk-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #d97706, #b45309);
+  border-radius: 4px;
+  border: 1px solid #92400e;
+}
+
+.steampunk-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #b45309, #92400e);
+}
+
+.steampunk-scrollbar::-webkit-scrollbar-corner {
+  background: #fef3c7;
+}
+
+/* Scrollbar personalizada para tema Zombie */
+.zombie-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.zombie-scrollbar::-webkit-scrollbar-track {
+  background: #374151;
+  border-radius: 4px;
+  border: 1px solid #dc2626;
+}
+
+.zombie-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #dc2626, #b91c1c);
+  border-radius: 4px;
+  border: 1px solid #991b1b;
+}
+
+.zombie-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #b91c1c, #991b1b);
+}
+
+.zombie-scrollbar::-webkit-scrollbar-corner {
+  background: #374151;
+}
+
+/* Scrollbar para Firefox */
+.steampunk-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #d97706 #fef3c7;
+}
+
+.zombie-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #dc2626 #374151;
+}
