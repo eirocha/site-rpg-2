@@ -402,6 +402,56 @@ export default function SpaceRPG() {
                     descobrirá planetas habitáveis e tomará decisões que afetarão o futuro da humanidade. 
                     O sistema usa mecânicas simples baseadas em D6 para gerar histórias dinâmicas e colaborativas de ficção científica.
                   </p>
+                  
+                  {/* Regras do Jogo */}
+                  <div className="mt-6 p-4 bg-slate-800/50 rounded-lg border border-blue-700">
+                    <h3 className="text-lg font-bold text-blue-100 mb-3 flex items-center gap-2">
+                      <BookOpen className="w-5 h-5" />
+                      Regras do Jogo
+                    </h3>
+                    <div className="space-y-3 text-sm text-blue-200">
+                      <div>
+                        <h4 className="font-semibold text-blue-100 mb-1">🎯 Objetivo:</h4>
+                        <p>Sobreviver e prosperar no espaço enquanto explora o cosmos, completa missões e descobre os segredos do universo.</p>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-blue-100 mb-1">🎲 Como Jogar:</h4>
+                        <ul className="list-disc list-inside space-y-1 ml-2">
+                          <li>Use as tabelas para gerar elementos da história</li>
+                          <li>Combine resultados para criar narrativas coerentes</li>
+                          <li>Colabore com outros jogadores para desenvolver a aventura</li>
+                          <li>O Oráculo Cósmico responde perguntas sim/não</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-blue-100 mb-1">⚡ Mecânicas Principais:</h4>
+                        <ul className="list-disc list-inside space-y-1 ml-2">
+                          <li><strong>Sucesso:</strong> Resultados 4-6 nas tabelas</li>
+                          <li><strong>Falha:</strong> Resultados 1-3 nas tabelas</li>
+                          <li><strong>Vantagem:</strong> Role 2 dados, use o maior</li>
+                          <li><strong>Desvantagem:</strong> Role 2 dados, use o menor</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-blue-100 mb-1">🚀 Recursos da Tripulação:</h4>
+                        <ul className="list-disc list-inside space-y-1 ml-2">
+                          <li><strong>Oxigênio:</strong> Essencial para sobrevivência</li>
+                          <li><strong>Energia:</strong> Alimenta sistemas da nave</li>
+                          <li><strong>Combustível:</strong> Para viagens espaciais</li>
+                          <li><strong>Moral:</strong> Mantém a tripulação unida</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-blue-100 mb-1">🌟 Dicas de Exploração:</h4>
+                        <ul className="list-disc list-inside space-y-1 ml-2">
+                          <li>Documente coordenadas de descobertas</li>
+                          <li>Estabeleça protocolos de primeiro contato</li>
+                          <li>Mantenha backup dos sistemas críticos</li>
+                          <li>Confie na intuição, mas verifique com dados</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
                   <div className="flex flex-wrap justify-center sm:justify-start gap-2 mt-4">
                     <Badge variant="secondary" className="bg-blue-900 text-blue-100 border-blue-600 text-sm">
                       🚀 Exploração Espacial

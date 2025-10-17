@@ -402,6 +402,56 @@ export default function ZombieRPG() {
                     buscará recursos escassos e tomará decisões impossíveis. 
                     O sistema usa mecânicas simples baseadas em D6 para gerar histórias dinâmicas e colaborativas de horror e sobrevivência.
                   </p>
+                  
+                  {/* Regras do Jogo */}
+                  <div className="mt-6 p-4 bg-red-900/50 rounded-lg border border-red-700">
+                    <h3 className="text-lg font-bold text-red-100 mb-3 flex items-center gap-2">
+                      <BookOpen className="w-5 h-5" />
+                      Regras do Jogo
+                    </h3>
+                    <div className="space-y-3 text-sm text-red-200">
+                      <div>
+                        <h4 className="font-semibold text-red-100 mb-1">🎯 Objetivo:</h4>
+                        <p>Sobreviver ao apocalipse zumbi, encontrar refúgio seguro e manter a humanidade em um mundo perdido.</p>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-red-100 mb-1">🎲 Como Jogar:</h4>
+                        <ul className="list-disc list-inside space-y-1 ml-2">
+                          <li>Use as tabelas para gerar elementos da história</li>
+                          <li>Combine resultados para criar narrativas coerentes</li>
+                          <li>Colabore com outros jogadores para sobreviver</li>
+                          <li>O Oráculo de Sobrevivência responde perguntas sim/não</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-red-100 mb-1">⚡ Mecânicas Principais:</h4>
+                        <ul className="list-disc list-inside space-y-1 ml-2">
+                          <li><strong>Sucesso:</strong> Resultados 4-6 nas tabelas</li>
+                          <li><strong>Falha:</strong> Resultados 1-3 nas tabelas</li>
+                          <li><strong>Vantagem:</strong> Role 2 dados, use o maior</li>
+                          <li><strong>Desvantagem:</strong> Role 2 dados, use o menor</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-red-100 mb-1">🧟 Recursos dos Sobreviventes:</h4>
+                        <ul className="list-disc list-inside space-y-1 ml-2">
+                          <li><strong>Saúde:</strong> Vital para sobrevivência</li>
+                          <li><strong>Munição:</strong> Essencial para defesa</li>
+                          <li><strong>Comida:</strong> Mantém a força</li>
+                          <li><strong>Sanidade:</strong> Preserva a humanidade</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-red-100 mb-1">🌟 Dicas de Sobrevivência:</h4>
+                        <ul className="list-disc list-inside space-y-1 ml-2">
+                          <li>Silêncio é sua melhor arma</li>
+                          <li>Conheça seus pontos de fuga</li>
+                          <li>Verifique sempre suprimentos</li>
+                          <li>Confie, mas verifique sempre</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
                   <div className="flex flex-wrap justify-center sm:justify-start gap-2 mt-4">
                     <Badge variant="secondary" className="bg-red-900 text-red-100 border-red-600 text-sm">
                       🧟 Apocalipse Zumbi
@@ -434,60 +484,126 @@ export default function ZombieRPG() {
 
       <div className="container mx-auto px-3 py-6 sm:px-4 sm:py-8">
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 sm:gap-6">
-          {/* Painel de Dados - Mobile First */}
+          {/* Painel de Controle - Mobile First */}
           <div className="xl:col-span-1">
             <Card className="border-2 border-red-800 shadow-xl">
               <CardHeader className="bg-gradient-to-r from-red-800 to-gray-800 text-white">
                 <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
-                  <Sparkles className="w-5 h-5" />
-                  Dado da Sorte
+                  <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />
+                  Painel de Controle
                 </CardTitle>
                 <CardDescription className="text-red-200 text-sm">
-                  Role o D6 para determinar seu destino
+                  Sistema de Sobrevivência
                 </CardDescription>
               </CardHeader>
-              <CardContent className="p-4 sm:p-6 bg-gray-800">
-                <div className="flex flex-col items-center gap-4 sm:gap-6">
-                  {/* Dado Animado Mobile */}
-                  <div className={`relative ${isRolling ? 'animate-bounce' : ''}`}>
-                    <div className={`w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-red-600 to-orange-600 border-4 border-yellow-500 rounded-lg flex items-center justify-center shadow-lg ${isRolling ? 'animate-spin' : ''}`}>
-                      <DiceIcon value={currentDice} size={40} className="text-white sm:size-12" />
-                    </div>
-                    {isRolling && (
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-20 h-20 sm:w-24 sm:h-24 border-4 border-yellow-400 rounded-lg animate-ping" />
-                      </div>
-                    )}
-                  </div>
-                  
-                  <Badge variant="outline" className="text-xl sm:text-2xl font-bold px-3 py-2 sm:px-4 border-2 border-yellow-500 bg-red-700 text-white">
-                    {currentDice}
-                  </Badge>
-                  
-                  <Button 
-                    onClick={rollDice}
-                    disabled={isRolling}
-                    className="w-full bg-gradient-to-r from-red-700 to-gray-700 hover:from-red-800 hover:to-gray-800 text-white font-bold py-3 text-base sm:text-lg min-h-[44px]"
+              <CardContent className="p-4 sm:p-6 bg-gray-800 space-y-4">
+                {/* Seletor de Tabela */}
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-red-100">Sistema Ativo:</label>
+                  <select 
+                    value={selectedTable}
+                    onChange={(e) => setSelectedTable(e.target.value)}
+                    className="w-full px-3 py-2 bg-gray-700 border border-red-600 rounded-lg text-white focus:ring-2 focus:ring-red-500 focus:border-transparent"
                   >
-                    {isRolling ? 'Rolando...' : 'Rolar Dado'}
-                  </Button>
+                    <option value="oraculo">Oráculo de Sobrevivência</option>
+                    <option value="trama">Trama Apocalíptica</option>
+                    <option value="personagem">Sobrevivente</option>
+                    <option value="cena">Cena de Horror</option>
+                    <option value="bancoIdeias">Banco de Recursos</option>
+                  </select>
                 </div>
-                
-                <Separator className="my-4 sm:my-6 bg-red-600" />
-                
-                {/* Histórico de Rolagens Mobile */}
+
+                {/* Botão de Rolar Dado */}
+                <Button 
+                  onClick={rollDice}
+                  disabled={isRolling}
+                  className="w-full bg-gradient-to-r from-red-700 to-gray-700 hover:from-red-800 hover:to-gray-800 text-white font-bold py-3 sm:py-4 transition-all duration-200 transform hover:scale-105 disabled:opacity-50 disabled:transform-none min-h-[44px]"
+                >
+                  <div className="flex items-center justify-center gap-2">
+                    <DiceIcon value={currentDice} size={24} className={`${isRolling ? 'animate-spin' : ''}`} />
+                    <span>{isRolling ? 'Calculando...' : 'Rolar D6 de Sobrevivência'}</span>
+                  </div>
+                </Button>
+
+                {/* Resultado Atual */}
+                {currentResult && (
+                  <Card className="border-red-600 bg-gray-700">
+                    <CardContent className="p-3 sm:p-4">
+                      <div className="flex items-center gap-2 mb-2">
+                        <DiceIcon value={currentDice} size={20} />
+                        <span className="font-bold text-red-100">Resultado {currentDice}</span>
+                      </div>
+                      <div className="text-sm text-red-200">
+                        {selectedTable === 'oraculo' && (
+                          <div>
+                            <p className="font-semibold">{currentResult.resultado}</p>
+                            <p className="text-xs mt-1">{currentResult.descricao}</p>
+                          </div>
+                        )}
+                        {selectedTable === 'trama' && (
+                          <div>
+                            <p className="font-semibold text-red-100">Aconteceu:</p>
+                            <p className="text-xs">{currentResult.aconteceu}</p>
+                            <p className="font-semibold text-red-100 mt-2">Precisa:</p>
+                            <p className="text-xs">{currentResult.precisa}</p>
+                            <p className="font-semibold text-red-100 mt-2">Senão:</p>
+                            <p className="text-xs">{currentResult.senao}</p>
+                          </div>
+                        )}
+                        {selectedTable === 'personagem' && (
+                          <div>
+                            <p className="text-xs">{currentResult.descricao}</p>
+                          </div>
+                        )}
+                        {selectedTable === 'cena' && (
+                          <div>
+                            <p className="font-semibold text-red-100">Lugar:</p>
+                            <p className="text-xs">{currentResult.lugar}</p>
+                            <p className="font-semibold text-red-100 mt-1">Personagem:</p>
+                            <p className="text-xs">{currentResult.personagem}</p>
+                            <p className="font-semibold text-red-100 mt-1">Evento:</p>
+                            <p className="text-xs">{currentResult.evento}</p>
+                          </div>
+                        )}
+                        {selectedTable === 'bancoIdeias' && (
+                          <div>
+                            <p className="font-semibold text-red-100">Assunto:</p>
+                            <p className="text-xs">{currentResult.assunto}</p>
+                            <p className="font-semibold text-red-100 mt-1">Ação:</p>
+                            <p className="text-xs">{currentResult.acao}</p>
+                            <p className="font-semibold text-red-100 mt-1">Coisa:</p>
+                            <p className="text-xs">{currentResult.coisa}</p>
+                            <p className="font-semibold text-red-100 mt-1">Item:</p>
+                            <p className="text-xs">{currentResult.item}</p>
+                            <p className="font-semibold text-red-100 mt-1">Arma:</p>
+                            <p className="text-xs">{currentResult.arma}</p>
+                            <p className="font-semibold text-red-100 mt-1">Qualidade:</p>
+                            <p className="text-xs">{currentResult.qualidade}</p>
+                          </div>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+                )}
+
+                <Separator className="bg-red-600" />
+
+                {/* Histórico de Rolagens */}
                 <div>
-                  <h3 className="font-semibold text-red-100 mb-3 text-sm sm:text-base">Histórico Recente</h3>
-                  <ScrollArea className="h-24 sm:h-32 bg-gray-800 rounded-lg border border-red-800">
-                    <div className="space-y-2">
+                  <h3 className="font-semibold text-red-100 mb-3 text-sm sm:text-base flex items-center gap-2">
+                    <Clock className="w-4 h-4" />
+                    Histórico de Sobrevivência
+                  </h3>
+                  <ScrollArea className="h-32 sm:h-40 border border-red-600 rounded-lg bg-gray-700">
+                    <div className="p-2 space-y-2">
                       {rollHistory.length === 0 ? (
-                        <p className="text-gray-400 text-sm">Nenhuma rolagem ainda</p>
+                        <p className="text-red-300 text-sm text-center">Nenhuma rolagem ainda</p>
                       ) : (
                         rollHistory.map((roll, index) => (
-                          <div key={index} className="flex items-center gap-2 text-sm">
-                            <DiceIcon value={roll.result} size={14} className=" text-yellow-400" />
-                            <span className="font-medium text-white">{roll.result}</span>
-                            <span className="text-gray-400">- {getTableName(roll.table)}</span>
+                          <div key={index} className="flex items-center gap-2 text-xs sm:text-sm p-2 bg-gray-600 rounded border border-red-600">
+                            <DiceIcon value={roll.result} size={16} className="text-red-400" />
+                            <span className="font-medium text-red-100">{roll.result}</span>
+                            <span className="text-red-300">- {getTableName(roll.table)}</span>
                           </div>
                         ))
                       )}
